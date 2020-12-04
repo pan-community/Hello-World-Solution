@@ -11,6 +11,7 @@ snippets:
 
   # IronSkillet baseline
   # TODO: pull in snippets when ready
+  # current load requires zone protect profiles, profiles, groups from IronSkillet
 
   # layer3 internet gateway snippets
   - name: layer3_config_group
