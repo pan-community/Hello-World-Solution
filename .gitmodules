@@ -1,0 +1,6 @@
+[submodule "panos-config-elements"]
+	path = panos-config-elements
+	url = git@gitlab.com:panw-gse/tech-library/configure/panos-config-elements.git
+[submodule "ironskillet-components"]
+	path = ironskillet-components
+	url = git@gitlab.com:panw-gse/tech-library/configure/ironskillet-components.git
