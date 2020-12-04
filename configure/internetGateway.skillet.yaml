@@ -1,0 +1,38 @@
+name: panos_layer3_config_group
+label: PAN-OS layer 3 config group
+description: |-
+  group of snippets for layer 3 internet gateway configuration
+type: panos
+labels:
+  collection:
+    - lib
+
+snippets:
+
+  # IronSkillet baseline
+  # TODO: pull in snippets when ready
+
+  # layer3 internet gateway snippets
+  - name: layer3_config_group
+    include: panos_network_snippets
+    include_variables:
+      - name: intf_internet
+      - name: zone_internet
+      - name: intf_internal
+      - name: internal_intf_ipaddr
+      - name: zone_internal
+      - name: dhcp_server_netmask
+      - name: dhcp_server_gateway
+      - name: dhcp_server_pool_range
+    include_snippets:
+      - name: internal_interface_management_profile
+      - name: internet_interface_management_profile
+      - name: internet_interface_dhcpClient
+      - name: internal_interface_layer3
+      - name: internet_zone_layer3
+      - name: internal_zone_layer3
+      - name: virtual_router_layer3
+      - name: dhcp_server_layer3
+      - name: nat_policy_dipp
+
+
