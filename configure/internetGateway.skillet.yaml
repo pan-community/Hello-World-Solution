@@ -5,7 +5,7 @@ description: |-
 type: panos
 labels:
   collection:
-    - lib
+    - Hello World
 
 snippets:
 
@@ -13,27 +13,17 @@ snippets:
   # TODO: pull in snippets when ready
   # current load requires zone protect profiles, profiles, groups from IronSkillet
 
+  # demo specific config items different from day one IronSkillet settings
+  - name: demo_config_snippets
+    include: panos_demo_snippets_device_admin
+    include_snippets:
+      - name: panos_idle_timeout_60min
+
   # layer3 internet gateway snippets
   - name: layer3_config_group
-    include: panos_network_snippets
-    include_variables:
-      - name: intf_internet
-      - name: zone_internet
-      - name: intf_internal
-      - name: internal_intf_ipaddr
-      - name: zone_internal
-      - name: dhcp_server_netmask
-      - name: dhcp_server_gateway
-      - name: dhcp_server_pool_range
-    include_snippets:
-      - name: internal_interface_management_profile
-      - name: internet_interface_management_profile
-      - name: internet_interface_dhcpClient
-      - name: internal_interface_layer3
-      - name: internet_zone_layer3
-      - name: internal_zone_layer3
-      - name: virtual_router_layer3
-      - name: dhcp_server_layer3
-      - name: nat_policy_dipp
-
+    include:
+      - name: panos_network_snippets_layer3
+      - name: panos_network_snippets_dhcp_server_basic
+      - name: panos_network_snippets_nat_dipp
+      - name: panos_policy_snippets_outbound_security_rules
 
