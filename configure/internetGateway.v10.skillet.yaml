@@ -20,6 +20,9 @@ snippets:
   # tag object
   - name: panos_ngfw_tag_10_0
     include: panos_ngfw_tag_10_0
+  # default log forwarding profile
+  - name: panos_ngfw_log_settings_profiles_orig_10_0
+    include: panos_ngfw_log_settings_profiles_orig_10_0
   # security profiles and profile groups
   - name: panos_ngfw_profile_wildfire_analysis_10_0
     include: panos_ngfw_profile_wildfire_analysis_10_0
