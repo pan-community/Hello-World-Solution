@@ -4,3 +4,6 @@
 [submodule "ironskillet-components"]
 	path = submodules/ironskillet-components
 	url = git@gitlab.com:panw-gse/tech-library/configure/ironskillet-components.git
+[submodule "submodules/panos-ansible-upgrade-downgrade"]
+	path = deploy/panos-ansible-upgrade-downgrade
+	url = https://gitlab.com/panw-gse/tech-library/deploy/panos-ansible-upgrade-downgrade.git
