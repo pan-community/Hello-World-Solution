@@ -7,3 +7,6 @@
 [submodule "submodules/panos-ansible-upgrade-downgrade"]
 	path = submodules/panos-ansible-upgrade-downgrade
 	url = https://gitlab.com/panw-gse/tech-library/deploy/panos-ansible-upgrade-downgrade.git
+[submodule "submodules/panos-validation-snippets"]
+	path = submodules/panos-validation-snippets
+	url = https://gitlab.com/panw-gse/as/panos-validation-snippets.git

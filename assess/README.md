@@ -1,5 +1,11 @@
 # Assess
 
-validation assessment using part of the CIS validation
+## Validation Skillet and report for key operational items
 
-traffic generation to show log and threat data
+key settings such as:
+
+ * security profiles in policies
+ * security profile settings
+ * dynamic update schedules configured
+ 
+ 
