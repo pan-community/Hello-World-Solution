@@ -14,8 +14,8 @@
 - name: test playbook to validate playlist model
   import_playbook: ../submodules/test1/test1.yml
 
-#- name: baseline playbook for ngfw
-#  import_playbook: ../submodules/panos-ansible-upgrade-downgrade/manage_panos_software.yml
+- name: baseline playbook for ngfw
+  import_playbook: ../submodules/panos-ansible-upgrade-downgrade/manage_panos_software.yml
 
 - name: load IronSkillet elements with layer 3 gateway config
   import_playbook: ../configure/ansible-configure/configure-fw.yml

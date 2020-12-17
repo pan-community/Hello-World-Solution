@@ -1,4 +1,4 @@
-- name: cdl_content
+- name: test1_playbook
   hosts: localhost
   connection: local
   gather_facts: False
@@ -14,13 +14,10 @@
       password: '{{ password }}'
 
   tasks:
-    -
-    - name: Include User Variables
-      include_vars: vars/main.yml
 
     - name: "running test 1 playbook"
       debug:
-        msg: "test 1"
+        msg: "test 1 playbook to device at {{ ip_address }}"
 
     - name: Ensure deps are avabilable
       # Ensure we have all the right requirements installed in this environment
