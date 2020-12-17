@@ -1,12 +1,9 @@
 # Deploy
 
-multiple stages to:
+this may or may not include local solution content. the baseline playbook is
+referenced in the autoplay playbook sitting in the submodules dir
 
-instantiate the firewall in AWS
+TBD: if the topology deploy will be the same
 
-license the VM-series
 
-update the software and apply content updates
-
-deploy an Ubuntu server to generate traffic
 

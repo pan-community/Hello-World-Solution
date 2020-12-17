@@ -15,8 +15,8 @@
 
   tasks:
     # currently using clear text vars for testing
-    - name: grab auth creds
-      include_vars: vars/main.yml
+    #- name: grab auth creds
+    #  include_vars: vars/main.yml
 
     - name: Ensure deps are available
       # Ensure we have all the right requirements installed in this environment
@@ -64,7 +64,7 @@
     # play the named skillet to configure fw elements
     - name: play cdl global config skillet
       pan_community.skillet.panos_skillet:
-        skillet_path: '{{ playbook_dir }}/configure'
+        skillet_path: '{{ playbook_dir }}'
         skillet: 'panos_layer3_config_group_v10'
         provider: '{{ provider }}'
         vars: '{{ skillet_vars }}'
