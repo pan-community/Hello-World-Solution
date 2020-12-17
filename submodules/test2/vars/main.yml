@@ -1,0 +1,4 @@
+# PAN-OS Auth Information
+ip_address: 10.10.10.10
+username: admin
+password: 'Sup er_Sec ret'
