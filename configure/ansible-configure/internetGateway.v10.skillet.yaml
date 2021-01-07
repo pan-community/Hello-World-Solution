@@ -28,43 +28,20 @@ snippets:
   # security profiles and profile groups
   - name: panos_ngfw_profile_wildfire_analysis_10_0
     include: panos_ngfw_profile_wildfire_analysis_10_0
-    include_snippets:
-      - name: ironskillet_outbound
-      - name: ironskillet_alert_all
   - name: panos_ngfw_profile_antivirus_10_0
     include: panos_ngfw_profile_antivirus_10_0
-    include_snippets:
-      - name: ironskillet_antivirus_alert_all
-      - name: ironskillet_antivirus_outbound
   - name: panos_ngfw_profile_custom_urlFiltering_10_0
     include: panos_ngfw_profile_custom_urlFiltering_10_0
   - name: panos_ngfw_profile_urlFiltering_10_0
     include: panos_ngfw_profile_urlFiltering_10_0
-    include_snippets:
-      - name: ironskillet_url_outbound
-      - name: ironskillet_url_alert_all
   - name: panos_ngfw_profile_vulnerability_10_0
     include: panos_ngfw_profile_vulnerability_10_0
-    include_snippets:
-      - name: ironskillet_vulnerability_outbound
-      - name: ironskillet_vulnerability_alert_all
   - name: panos_ngfw_profile_spyware_10_0
     include: panos_ngfw_profile_spyware_10_0
-    include_snippets:
-      - name: ironskillet_spyware_outbound
-      - name: ironskillet_spyware_alert_all
-    include_variables: all
   - name: panos_ngfw_profile_file-blocking_10_0
     include: panos_ngfw_profile_file-blocking_10_0
-    include_snippets:
-      - name: ironskillet_file_blocking_outbound
-      - name: ironskillet_file_blocking_alert_all
   - name: panos_ngfw_profile_group_10_0
     include: panos_ngfw_profile_group_10_0
-    include_snippets:
-      - name: ironskillet_profile_group_outbound
-      - name: ironskillet_profile_group_alert_all
-      - name: ironskillet_profile_group_default
 
   # demo specific config items different from day one IronSkillet settings
   - name: demo_config_snippets
