@@ -11,9 +11,6 @@
 
   tasks:
 
-- name: test playbook to validate playlist model
-  import_playbook: ../submodules/test1/test1.yml
-
 - name: baseline playbook for ngfw
   import_playbook: ../submodules/panos-ansible-upgrade-downgrade/manage_panos_software.yml
 
