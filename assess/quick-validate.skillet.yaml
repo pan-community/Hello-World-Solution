@@ -17,7 +17,7 @@ snippets:
 
 
     - name: vulnerability_protection_profile
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_vulnerability_profile_rules
         - name: vulnerability_profile_blocking
@@ -32,7 +32,7 @@ snippets:
             -and-set-to-default-on-medium-low-and-informational-vulnerabilities
 
     - name: ensure_panDB_is_used
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_url_license_info
         - name: pandb_url_filtering
@@ -44,7 +44,7 @@ snippets:
             https://iron-skillet.readthedocs.io/en/docs_master/cis.html#ensure-that-pan-db-url-filtering-is-used
 
     - name: ensure_url_filtering_block_override
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_url_filtering_block_override
         - name: url_filtering_block_or_override_test
@@ -57,7 +57,7 @@ snippets:
             https://iron-skillet.readthedocs.io/en/docs_master/cis.html#ensure-that-pan-db-url-filtering-is-used
 
     - name: ensure_WF_used_in_policies
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_wildfire_profile_policies
         - name: WF_profile_in_policies
@@ -70,7 +70,7 @@ snippets:
             ensure-a-wildfire-analysis-profile-is-enabled-for-all-security-policies
 
     - name: vulnerability_profile_used_in_policies
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_vulnerability_profile_policies
         - name: vulnerability_profile_in_policies
@@ -83,7 +83,7 @@ snippets:
             ensure-a-secure-vulnerability-protection-profile-is-applied-to-all-security-rules-allowing-traffic
 
     - name: no_any_any_security_policy
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_security_policy_any_service
         - name: service_any_not_allowed_in_policy
@@ -96,7 +96,7 @@ snippets:
             ensure-service-setting-of-any-in-a-security-policy-allowing-traffic-does-not-exist
 
     - name: ensure_all_url_logged
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_predefined_url_categories
         - name: capture_url_category_actions
@@ -109,7 +109,7 @@ snippets:
             https://iron-skillet.readthedocs.io/en/docs_master/cis.html#ensure-that-access-to-every-url-is-logged
 
     - name: WF_update_schedule
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_wildfire_update_schedule
         - name: WF_update_schedule
@@ -122,7 +122,7 @@ snippets:
             ensure-wildfire-update-schedule-is-set-to-download-and-install-updates-every-minute
 
     - name: antivirus profile blocking
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_av_profile_action_settings
         - name: av_profile_block_all_decoders_test
@@ -136,7 +136,7 @@ snippets:
 
 
     - name: dns_sinkhole_enabled
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_dns_sinkhole_configuration
         - name: DNS_sinkhole_configured
@@ -150,7 +150,7 @@ snippets:
 
 
     - name: ensure_dns_sinkholing_configured
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_dns_sinkhole_configuration
         - name: DNS_sinkhole_configured
@@ -163,7 +163,7 @@ snippets:
             ensure-dns-sinkholing-is-configured-on-all-anti-spyware-profiles-in-use
 
     - name: anti-spyware_profile_on_all_policies
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_antispyware_profiles_in_policies
         - name: spyware_profile_in_policies
@@ -177,7 +177,7 @@ snippets:
 
 
     - name: AV_profile_in_all_policies
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_av_profile_in_policies
         - name: AV_profile_in_policies
@@ -190,7 +190,7 @@ snippets:
             ensure-a-secure-antivirus-profile-is-applied-to-all-relevant-security-policies
 
     - name: WF_file_sizes_set_to_recommended
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_wf_size_testing
         - name: wf_limit_pe_test
@@ -203,7 +203,7 @@ snippets:
             ensure-that-wildfire-file-size-upload-limits-are-maximized
 
     - name: url-filtering_used_in_all_policies
-      include: CIS_NGFW_benchmark_v90
+      include: panos_validations_profile_objects
       include_snippets:
         - name: capture_url_filtering_in_policies
         - name: urlfiltering_profile_in_policies
