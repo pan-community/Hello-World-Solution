@@ -38,8 +38,8 @@ snippets:
     when: "'deploy_in_azure' in helloWorld_options"
 
 # deploy the topology in Azure
-#  - name: tbd
-#    when: "'deploy_in_azure' in helloWorld_options"
+  - name: deploy_topology_1ngfw_2hosts_azure
+    when: "'deploy_in_azure' in helloWorld_options"
 
 # baseline and configure the topology
   - name: auto_deploy_configure_skillet_v10
