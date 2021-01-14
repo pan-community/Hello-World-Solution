@@ -1,0 +1,112 @@
+---
+
+content_templates:
+  validation_table:
+    type: table
+    columns:
+
+      - title: Validation Check
+        key: documentation_link
+        type: url
+        display_key: label
+
+      - title: Result
+        key: icon 
+        type: icon
+        style:
+          width: 30px
+        tooltip:
+          key: output_message
+          style:
+            left: -300px
+
+report:
+
+    title: Hello World Automated Validation
+    subtitle: PAN-OS
+    footer_links:
+      - name: Palo Alto Networks
+        url: https://paloaltonetworks.com
+      - name: Hello World Validation
+        url: https://gitlab.com/panw-gse/as/hello-world-solution
+
+    sections:
+
+      - name: Validation Statistics
+        content:
+          - type: stats_block
+            key: stats
+            data:
+
+              - title: Total Checks
+                key: total
+
+              - title: Checks Passed
+                key: pass
+                icon: checkmark
+
+              - title: Checks Failed
+                key: fail
+                icon: alert
+
+              - title: Action Required
+                key: action
+                icon: notify 
+
+      - name: NGFW
+        content:
+          - template: validation_table
+            key: NGFW
+
+      - name: Threat_Prevention
+        content:
+          - template: validation_table
+            key: Threat_Prevention
+
+      - name: DNS_Security
+        content:
+          - template: validation_table
+            key: DNS_Security
+
+      - name: URL_Filtering
+        content:
+          - template: validation_table
+            key: URL_Filtering
+
+      - name: Wildfire
+        content:
+          - template: validation_table
+            key: Wildfire
+
+
+pre_processing: |-
+  {%
+    set output = {
+      'NGFW': [], 'Threat_Prevention': [], 'DNS_Security': [], 'URL_Filtering': [], 'Wildfire': [],
+      'stats': {'total': 0, 'pass':0, 'fail':0, 'action':0}
+    }
+  %}
+
+  {% for check in data.keys() %}
+    {% set c = data[check] %}
+
+    {# Count statistics #}
+    {% set _= output.stats.__setitem__('total', output.stats.total + 1) %}
+    {% if c.meta.action_required %}
+      {% set _= c.__setitem__('icon', 'notify') %}
+      {% set _= output.stats.__setitem__('action', output.stats.action + 1) %}
+    {% elif c.results %}
+      {% set _= c.__setitem__('icon', 'checkmark') %}
+      {% set _= output.stats.__setitem__('pass', output.stats.pass + 1) %}
+    {% else %}
+      {% set _= c.__setitem__('icon', 'alert') %}
+      {% set _= output.stats.__setitem__('fail', output.stats.fail + 1) %}
+    {% endif %}
+
+    {# Sort into specific sections #}
+    {% set section = c.meta.product %}
+
+    {% set _= output[c.meta.product].append(c) %}
+
+  {% endfor %}
+  {{ output | tojson }}
