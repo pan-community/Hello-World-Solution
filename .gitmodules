@@ -13,3 +13,6 @@
 [submodule "submodules/deployment-tools"]
 	path = submodules/deployment-tools
 	url = https://gitlab.com/panw-gse/tech-library/deploy/deployment-tools.git
+[submodule "topology-1-ngfw-2-hosts"]
+	path = submodules/topology-1-ngfw-2-hosts
+	url = https://gitlab.com/panw-gse/tech-library/deploy/topology-1-ngfw-2-hosts.git
