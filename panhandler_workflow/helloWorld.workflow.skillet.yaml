@@ -20,8 +20,10 @@ variables:
     cbx_list:
       - key: deploy topology in Azure
         value: deploy_in_azure
-      - key: baseline and configure deployed devices
-        value: deploy_baseline_config_devices
+      - key: baseline deployed devices
+        value: deploy_baseline
+      - key: configure NGFW
+        value: configure_NGFW
       - key: run assessment report
         value: run_assessment
 
@@ -41,39 +43,15 @@ snippets:
   - name: deploy_topology_1ngfw_2hosts_azure
     when: "'deploy_in_azure' in helloWorld_options"
 
-# baseline and configure the topology
+# baseline the topology
   - name: auto_deploy_configure_skillet_v10
-    when: "'deploy_baseline_config_devices' in helloWorld_options"
+    when: "'deploy_baseline' in helloWorld_options"
+
+# configure the NGFW
+  - name: panos_layer3_config_group_v10
+    when: "'configure_NGFW' in helloWorld_options"
 
 # run NGFW assessment
   - name: quick_validate_hello_world_solution
     when: "'run_assessment' in helloWorld_options"
 
-
-# configure new log forwarding profile
-  - name: iot_add_log_forwarding_profile
-    when: "'create_log_forwarding_profile' in cdl_options"
-
-# add or update logging profile used in security rules
-  - name: iot_add_logging_to_security_rules
-    when: "'add_logging_to_security_rules' in cdl_options"
-
-# 10x enable dhcp session broadcast
-  - name: panos_enable_dhcp_session_broadcast
-    when: "('v10x_enable_dhcp_broadcast' in v10x_options) and ('v10.x' in workflow_sw_version)"
-
-# 10x enable vware multicast firewalling
-  - name: iot_panos_enable_vwire_mcast_fw
-    when: "(('vwire_enable_mcast_fw' in v10x_options) and ('v10.x' in workflow_sw_version)) or (('vwire_enable_mcast_fw' in v9x_options) and ('v9.x' in workflow_sw_version))"
-
-# 9x convert DHCP server to DHCP relay per config guide
-  - name: iot_move_dhcp_server_to_dhcp_relay
-    when: "('v9x_convert_dhcp_relay' in v9x_options) and ('v9.x' in workflow_sw_version)"
-
-# add DHCP security policy
-  - name: add_dhcp_application_security_policy
-    when: "'add_dhcp_security_policy' in policy_options"
-
-# run IoT validation
-  - name: IoT_setup_Validation
-    when: "'run_iot_validation_end' in assess_options"
