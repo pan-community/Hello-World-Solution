@@ -1,5 +1,7 @@
 # PAN-OS Upgrade / Downgrade Playbook
 
+> THIS IS PROTOTYPE ONLY AND NOT CURRENTLY USED IN THE SKILLET WORKFLOW
+
 This playbook is a combination of other repos created locally or as tech library
 elements added as submodules.
 

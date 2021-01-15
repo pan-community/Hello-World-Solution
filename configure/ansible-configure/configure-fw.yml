@@ -65,7 +65,7 @@
     - name: play cdl global config skillet
       pan_community.skillet.panos_skillet:
         skillet_path: '{{ playbook_dir }}'
-        skillet: 'panos_layer3_config_group_v10'
+        skillet: 'panos_layer3_config_group_v10_playbook'
         provider: '{{ provider }}'
         vars: '{{ skillet_vars }}'
       register: skillet_output

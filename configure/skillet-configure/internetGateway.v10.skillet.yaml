@@ -1,7 +1,7 @@
-name: panos_layer3_config_group_v10_playbook
-label: PAN-OS layer 3 config group (used in playbook)
+name: panos_layer3_config_group_v10
+label: PAN-OS layer 3 config group as skillet playlist
 description: |-
-  group of snippets for layer 3 internet gateway configuration. referenced in Ansible playbook
+  group of snippets for layer 3 internet gateway configuration. Simple skillet playlist
 type: panos
 labels:
   collection:
