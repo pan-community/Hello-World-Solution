@@ -59,6 +59,6 @@ snippets:
     cmd: |
       ansible-playbook -i '../submodules/panos-ansible-upgrade-downgrade/inventory.yml'
       '../submodules/panos-ansible-upgrade-downgrade/manage_panos_software.yml' -e 'ip_address="{{ TARGET_IP }}"'
-      -e 'username="{{ TARGET_USERNAME }}"' -e 'port="{{ TARGET_PORT }}"' -e 'password="{{ TARGET_PASSWORD }}"'
+      -e 'username="{{ TARGET_USERNAME }}"' -e 'password="{{ TARGET_PASSWORD }}"'
       -e 'auth_code="{{ auth_code}}"' -e 'desired_version="{{ desired_version }}"'
       -e 'force_update_content="{{ force_content_update }}"' -e 'update_av="{{ update_av }}"'
