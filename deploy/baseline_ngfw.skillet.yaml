@@ -7,7 +7,7 @@ labels:
 
 variables:
   - name: TARGET_IP
-    description: Panorama IP
+    description: NGFW IP Address
     default: 192.168.55.10
     type_hint: text
   #- name: TARGET_PORT
@@ -16,11 +16,11 @@ variables:
   #  type_hint: number
   #  help_text: used in cases where non-standard ports are required
   - name: TARGET_USERNAME
-    description: Panorama Username
+    description: NGFW Username
     default: admin
     type_hint: text
   - name: TARGET_PASSWORD
-    description: Panorama Password
+    description: NGFW Password
     default:
     type_hint: password
   - name: auth_code
@@ -57,7 +57,7 @@ snippets:
     image: registry.gitlab.com/panw-gse/as/panos_skillet_tools:dev
     async: True
     cmd: |
-      ansible-playbook -i 'inventory.yml' manage_panos_software.yml' -e 'ip_address="{{ TARGET_IP }}"'
+      ansible-playbook -i 'inventory.yml ' '../submodules/panos-ansible-upgrade-downgrade/manage_panos_software.yml' -e 'ip_address="{{ TARGET_IP }}"'
       -e 'username="{{ TARGET_USERNAME }}"' -e 'port="{{ TARGET_PORT }}"' -e 'password="{{ TARGET_PASSWORD }}"'
       -e 'auth_code="{{ auth_code}}"' -e 'desired_version="{{ desired_version }}"'
       -e 'force_update_content="{{ force_content_update }}"' -e 'update_av="{{ update_av }}"'
