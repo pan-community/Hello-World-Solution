@@ -13,8 +13,8 @@ labels:
 
 variables:
 
-  - name: helloWorld_options
-    description: select Hello World solution options
+  - name: helloWorld_options_deploy
+    description: select Hello World deployment options
     default: []
     type_hint: checkbox
     cbx_list:
@@ -22,8 +22,20 @@ variables:
         value: deploy_in_azure
       - key: baseline deployed devices
         value: deploy_baseline
+
+  - name: helloWorld_options_configure
+    description: select Hello World configuration options
+    default: []
+    type_hint: checkbox
+    cbx_list:
       - key: configure NGFW
         value: configure_NGFW
+
+  - name: helloWorld_options_assess
+    description: select Hello World assessment options
+    default: []
+    type_hint: checkbox
+    cbx_list:
       - key: run assessment report
         value: run_assessment
 
@@ -33,25 +45,25 @@ snippets:
 
 # login to Azure
   - name: deployment_tools_azure_login
-    when: "'deploy_in_azure' in helloWorld_options"
+    when: "'deploy_in_azure' in helloWorld_options_deploy"
 
 # select Azure subscription
   - name: azure_select_subscription
-    when: "'deploy_in_azure' in helloWorld_options"
+    when: "'deploy_in_azure' in helloWorld_options_deploy"
 
 # deploy the topology in Azure
   - name: deploy_topology_1ngfw_2hosts_azure
-    when: "'deploy_in_azure' in helloWorld_options"
+    when: "'deploy_in_azure' in helloWorld_options_deploy"
 
 # baseline the topology
   - name: baseline_ngfw_v10
-    when: "'deploy_baseline' in helloWorld_options"
+    when: "'deploy_baseline' in helloWorld_options_deploy"
 
 # configure the NGFW
   - name: panos_layer3_config_group_v10
-    when: "'configure_NGFW' in helloWorld_options"
+    when: "'configure_NGFW' in helloWorld_options_configure"
 
 # run NGFW assessment
   - name: quick_validate_hello_world_solution
-    when: "'run_assessment' in helloWorld_options"
+    when: "'run_assessment' in helloWorld_options_assess"
 

@@ -51,56 +51,6 @@
       debug:
         msg: "Upgrade / Downgrade called with parameters: {{ sw_version }} -> {{ desired_version }}"
 
-    - block:
-        - name: "Checking if we should bail out early"
-          debug:
-            msg: "Device is already in the desired state"
-
-        - meta: end_play
-      when: sw_version == desired_version
-
-    - name: Setup Code Revisions Major List
-      set_fact:
-        major_versions: '{{ code_revisions.keys() | list }}'
-
-    - name: Set Desired Major Release
-      set_fact:
-        desired_major: "{{ major_versions | select('version', desired_version, '<=') | list | last }}"
-        current_major: "{{ major_versions | select('version', sw_version, '<=') | list | last }}"
-
-    - name: Set Desired Minor Version
-      # code_revisions contains a dict of major versions with the latest minor versions
-      # in most cases, we want to install the latest minor release. However, the user
-      # may specify any minor release they want, so capture that here
-      set_fact:
-        code_revisions: "{{ code_revisions | combine({desired_major: desired_version}) }}"
-
-    - name: Setup Possible Upgrade Paths
-      set_fact:
-        upgrade_path: "{{ major_versions | select('version', current_major, '>') | list }}"
-
-    - name: Setup Possible Downgrade Paths
-      set_fact:
-        downgrade_path: "{{ major_versions | select('version', current_major, '<') | list }}"
-
-    - name: Create Downgrade Plan
-      set_fact:
-        version_sequence: "{{ downgrade_path | select('version', desired_major, '>=') | reverse | list }}"
-      when: current_major is version(desired_major, '>')
-
-    - name: Create Upgrade Plan
-      set_fact:
-        version_sequence: "{{ upgrade_path | select('version', desired_major, '<=') | list }}"
-      when: current_major is version(desired_major, '<')
-
-    - name: Set Minor Upgrade Plan
-      set_fact:
-        version_sequence: "{{ [current_major] }}"
-      when: current_major == desired_major
-
-    - name: debug version_sequence
-      debug: msg="VS is {{ version_sequence }}"
-
     - name: Activate my authcode
       # This firewall must be licensed to pull dynamic content and software updates
       panos_lic:
