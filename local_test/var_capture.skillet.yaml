@@ -1,0 +1,13 @@
+name: capture_context_values
+label: test syntax for context variables
+description: test syntax for context variables
+type: template
+labels:
+  collection:
+    - Example Skillets
+
+
+snippets:
+  - name: panhandler_context_var
+    element: |
+      Variable value is {{ SOME_VARIABLE }}

@@ -55,6 +55,24 @@ snippets:
   - name: deploy_topology_1ngfw_2hosts_azure
     when: "'deploy_in_azure' in helloWorld_options_deploy"
 
+  - name: map_azure_values_to_other_variable_names
+    transform:
+      # variable names used in panos skillets and panHandler env mapped to Azure values
+      - name: TARGET_IP
+        source: ngfw_ip_address["ip_address"]
+      - name: TARGET_USERNAME
+        source: admin_username
+      - name: TARGET_PASSWORD
+        source: admin_password
+
+      # variable names used in the ansible upgrade playbook mapped to Azure values
+      - name: ip_address
+        source: ngfw_ip_address["ip_address"]
+      - name: username
+        source: admin_username
+      - name: password
+        source: admin_password
+
 # baseline the topology
   - name: baseline_ngfw_v10
     when: "'deploy_baseline' in helloWorld_options_deploy"

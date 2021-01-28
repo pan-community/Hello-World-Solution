@@ -57,8 +57,8 @@ snippets:
     image: registry.gitlab.com/panw-gse/as/panos_skillet_tools:dev
     async: True
     cmd: |
-      ansible-playbook -i '../local_test/panos-ansible-upgrade-downgrade/inventory.yml'
-      '../local_test/panos-ansible-upgrade-downgrade/manage_panos_software.yml' -e 'ip_address="{{ TARGET_IP }}"'
+      ansible-playbook -i '../submodules/panos-ansible-upgrade-downgrade/inventory.yml'
+      '../submodules/panos-ansible-upgrade-downgrade/manage_panos_software.yml' -e 'ip_address="{{ TARGET_IP }}"'
       -e 'username="{{ TARGET_USERNAME }}"' -e 'password="{{ TARGET_PASSWORD }}"'
       -e 'auth_code="{{ auth_code}}"' -e 'desired_version="{{ desired_version }}"'
       -e 'force_update_content="{{ force_content_update }}"' -e 'update_av="{{ update_av }}"'
