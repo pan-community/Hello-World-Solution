@@ -56,7 +56,7 @@ snippets:
     when: "'deploy_in_azure' in helloWorld_options_deploy"
 
 # baseline the topology
-  - name: baseline_ngfw_v10
+  - name: panos_ansible_upgrade_downgrade
     when: "'deploy_baseline' in helloWorld_options_deploy"
     # variable names used in the ansible upgrade playbook mapped to Azure values
     transform:
