@@ -52,27 +52,27 @@ variables:
   # input variables used for the terraform deployment
   # maps to the vars.tf variables
   - name: untrust_subnet_cidr
-    description: dmz subnet cider
+    description: internet subnet cider
     default: 192.168.254.0/24
     type_hint: disabled
 
   - name: fw_untrust_ip
-    description: dmz ip address
+    description: internet ip address
     default: 192.168.254.65
     type_hint: disabled
 
   - name: trust_subnet_cidr
-    description: dmz subnet cider
+    description: internal subnet cider
     default: 192.168.0.0/24
     type_hint: disabled
 
   - name: fw_trust_ip
-    description: dmz ip address
+    description: internal ip address
     default: 192.168.0.65
     type_hint: disabled
 
   - name: client_02_trust_ip
-    description: dmz subnet cider
+    description: internal subnet cider
     default: 192.168.0.66
     type_hint: disabled
 

@@ -90,6 +90,14 @@ snippets:
         source: admin_username
       - name: TARGET_PASSWORD
         source: admin_password
+      - name: internet_intf_ipaddr
+        source: fw_untrust_ip
+      - name: internal_intf_ipaddr
+        source: untrust_subnet_cidr
+      - name: dmz_intf_ipaddr
+        source: untrust_subnet_cidr
+      - name: dataplane_default_gateway
+        source: untrust_subnet_cidr
 
 # run NGFW assessment
   - name: quick_validate_hello_world_solution
