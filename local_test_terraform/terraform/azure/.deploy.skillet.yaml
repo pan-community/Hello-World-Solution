@@ -51,15 +51,15 @@ variables:
 
   - name: dmz_subnet_cidr
     description: dmz subnet cider
-    default: 192.100.0.0/24
+    default:
     type_hint: disabled
 
   - name: fw_dmz_ip
     description: dmz ip address
-    default: 192.100.0.100
+    default:
     type_hint: disabled
 
   - name: client_02_dmz_ip
     description: dmz subnet cider
-    default: 192.100.0.101
+    default:
     type_hint: disabled
