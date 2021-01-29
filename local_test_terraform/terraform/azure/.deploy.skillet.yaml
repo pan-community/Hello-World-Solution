@@ -1,0 +1,65 @@
+name: deploy_topology_1ngfw_2hosts_azure_test
+label: Deploy 1 NGFW 2 Host Topology To Azure
+description: |
+  Deploys the 1 NGFW 2 Host Topology to Azure using Terraform.
+
+type: terraform
+
+labels:
+  collection:
+    - Deploy
+    - Topologies
+  terraform_image: registry.gitlab.com/panw-gse/as/terraform_tools:0.14
+
+variables:
+  - name: azure_region
+    description: Azure Region
+    default: centralus
+    type_hint: dropdown
+    dd_list:
+      - key: centralus
+        value: Central US
+      - key: eastus
+        value: East US
+
+  - name: admin_username
+    description: Admin Username
+    default: paloalto
+    type_hint: text
+
+  - name: admin_password
+    description: Admin Password
+    default:
+    type_hint: password
+
+  - name: resource_group_name
+    description: Resource Group Name
+    default: 1ngfw_2host_topology_0001
+    type_hint: text
+    help_text: |
+      This value must be unique across your Azure Subscription
+
+  - name: ngfw_version
+    description: PAN-OS NGFW Version
+    default: 10.0.3
+    type_hint: dropdown
+    dd_list:
+      - key: 10.0.3
+        value: 10.0.3
+      - key: 9.1.6
+        value: 9.1.6
+
+  - name: dmz_subnet_cidr
+    description: dmz subnet cider
+    default: 192.100.0.0/24
+    type_hint: disabled
+
+  - name: fw_dmz_ip
+    description: dmz ip address
+    default: 192.100.0.100
+    type_hint: disabled
+
+  - name: client_02_dmz_ip
+    description: dmz subnet cider
+    default: 192.100.0.101
+    type_hint: disabled

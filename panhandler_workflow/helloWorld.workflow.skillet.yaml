@@ -70,7 +70,7 @@ snippets:
     when: "'deploy_in_azure' in helloWorld_options_deploy"
 
 # deploy the topology in Azure
-  - name: deploy_topology_1ngfw_2hosts_azure
+  - name: deploy_topology_1ngfw_2hosts_azure_test
     when: "'deploy_in_azure' in helloWorld_options_deploy"
 
 # baseline the topology
