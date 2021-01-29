@@ -64,17 +64,17 @@ variables:
   - name: trust_subnet_cidr
     description: internal subnet cider
     default: 192.168.0.0/24
-    type_hint: disabled
+    type_hint: hidden
 
   - name: fw_trust_ip
     description: internal ip address
     default: 192.168.0.65
-    type_hint: disabled
+    type_hint: hidden
 
   - name: client_02_trust_ip
     description: internal subnet cider
     default: 192.168.0.66
-    type_hint: disabled
+    type_hint: hidden
 
   - name: dmz_subnet_cidr
     description: dmz subnet cider
