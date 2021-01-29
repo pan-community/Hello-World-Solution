@@ -91,7 +91,7 @@ snippets:
       - name: TARGET_PASSWORD
         source: admin_password
       - name: internet_intf_ipaddr
-        source: fw_untrust_ip
+        source: {{ fw_untrust_ip ~ "/" ~ untrust_subnet_cidr.split('/')[1] }}
       - name: internal_intf_ipaddr
         source: untrust_subnet_cidr.split('/')[1]
       - name: dmz_intf_ipaddr
