@@ -93,7 +93,7 @@ snippets:
       - name: internet_intf_ipaddr
         source: fw_untrust_ip
       - name: internal_intf_ipaddr
-        source: untrust_subnet_cidr
+        source: untrust_subnet_cidr.split('/')[1]
       - name: dmz_intf_ipaddr
         source: untrust_subnet_cidr
       - name: dataplane_default_gateway
