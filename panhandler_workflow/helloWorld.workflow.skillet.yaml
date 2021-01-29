@@ -93,11 +93,11 @@ snippets:
       - name: internet_intf_ipaddr
         source: fw_untrust_ip ~ "/" ~ untrust_subnet_cidr.split('/')[1]
       - name: internal_intf_ipaddr
-        source: untrust_subnet_cidr.split('/')[1]
+        source: fw_trust_ip ~ "/" ~ trust_subnet_cidr.split('/')[1]
       - name: dmz_intf_ipaddr
-        source: untrust_subnet_cidr
+        source: dmz_trust_ip ~ "/" ~ dmz_subnet_cidr.split('/')[1]
       - name: dataplane_default_gateway
-        source: untrust_subnet_cidr
+        source: fw_untrust_ip.split(".")[0:3] | join('.') ~ ".1"
 
 # run NGFW assessment
   - name: quick_validate_hello_world_solution
