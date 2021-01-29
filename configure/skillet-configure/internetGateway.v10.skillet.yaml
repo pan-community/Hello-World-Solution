@@ -8,6 +8,14 @@ labels:
   collection:
     - Hello World
 
+variables:
+  - name: API_KEY_LIFETIME
+    type_hint: hidden
+  - name: NTP_1
+    type_hint: hidden
+  - name: NTP_2
+    type_hint: hidden
+
 snippets:
 
   # IronSkillet baseline
