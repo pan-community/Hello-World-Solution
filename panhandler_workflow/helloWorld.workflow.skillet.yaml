@@ -28,10 +28,11 @@ variables:
     default: []
     type_hint: checkbox
     cbx_list:
-      - key: configure NGFW
-        value: configure_NGFW
       - key: load empty baseline configuration
         value: load_baseline_config
+      - key: configure NGFW
+        value: configure_NGFW
+
 
   - name: helloWorld_options_assess
     description: select Hello World assessment options
@@ -40,6 +41,21 @@ variables:
     cbx_list:
       - key: run assessment report
         value: run_assessment
+
+  - name: dmz_subnet_cidr
+    description: dmz subnet cider
+    default: 192.100.0.0/24
+    type_hint: text
+
+  - name: fw_dmz_ip
+    description: dmz ip address
+    default: 192.100.0.100
+    type_hint: text
+
+  - name: client_02_dmz_ip
+    description: dmz subnet cider
+    default: 192.100.0.101
+    type_hint: text
 
 
 snippets:
