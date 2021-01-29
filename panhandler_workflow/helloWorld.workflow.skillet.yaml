@@ -30,6 +30,8 @@ variables:
     cbx_list:
       - key: configure NGFW
         value: configure_NGFW
+      - key: load empty baseline configuration
+        value: load_baseline_config
 
   - name: helloWorld_options_assess
     description: select Hello World assessment options
@@ -79,6 +81,16 @@ snippets:
       - name: TARGET_PASSWORD
         source: admin_password
 
+  - name: import_empty_config_ab8f807b-6c2d-4e0a-b302-88d225072b58
+    when: "'load_baseline_config' in helloWorld_options_configure"
+    transform:
+      - name: TARGET_IP
+        source: ngfw_ip_address["ip_address"]
+      - name: TARGET_USERNAME
+        source: admin_username
+      - name: TARGET_PASSWORD
+        source: admin_password
+
 # run NGFW assessment
   - name: quick_validate_hello_world_solution
     when: "'run_assessment' in helloWorld_options_assess"
@@ -89,4 +101,3 @@ snippets:
         source: admin_username
       - name: TARGET_PASSWORD
         source: admin_password
-
