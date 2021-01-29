@@ -1,7 +1,8 @@
 name: panos_layer3_config_group_v10
 label: PAN-OS layer 3 config group as skillet playlist
 description: |-
-  group of snippets for layer 3 internet gateway configuration. Simple skillet playlist
+  group of snippets for layer 3 internet gateway configuration. Simple skillet playlist.
+  3 zone (internet, internal, dmz) with static ip addressing
 type: panos
 labels:
   collection:
@@ -50,13 +51,11 @@ snippets:
       - name: panos_idle_timeout_60min
 
   # layer3 internet gateway snippets
-  - name: panos_network_snippets_layer3
-    include: panos_network_snippets_layer3
-  - name: panos_network_snippets_dhcp_server_basic
-    include: panos_network_snippets_dhcp_server_basic
-  - name: panos_network_snippets_nat_dipp
-    include: panos_network_snippets_nat_dipp
-  - name: panos_policy_snippets_outbound_security_rules
-    include: panos_policy_snippets_outbound_security_rules
+  - name: panos_network_snippets_layer3_3zone_static
+    include: panos_network_snippets_layer3_3zone_static
+  - name: panos_network_snippets_nat_dipp_dual_source
+    include: panos_network_snippets_nat_dipp_dual_source
+  - name: panos_policy_snippets_outbound_security_rules_3zone_with_dmz
+    include: panos_policy_snippets_outbound_security_rules_3zone_with_dmz
 
 
