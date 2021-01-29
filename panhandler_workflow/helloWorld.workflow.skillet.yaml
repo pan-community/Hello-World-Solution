@@ -69,10 +69,8 @@ snippets:
       - name: password
         source: admin_password
 
-# configure the NGFW
-  - name: panos_layer3_config_group_v10
-    when: "'configure_NGFW' in helloWorld_options_configure"
-    # variable names used in panos skillets and panHandler env mapped to Azure values
+  - name: import_empty_config_ab8f807b-6c2d-4e0a-b302-88d225072b58
+    when: "'load_baseline_config' in helloWorld_options_configure"
     transform:
       - name: TARGET_IP
         source: ngfw_ip_address["ip_address"]
@@ -81,8 +79,10 @@ snippets:
       - name: TARGET_PASSWORD
         source: admin_password
 
-  - name: import_empty_config_ab8f807b-6c2d-4e0a-b302-88d225072b58
-    when: "'load_baseline_config' in helloWorld_options_configure"
+# configure the NGFW
+  - name: panos_layer3_config_group_v10
+    when: "'configure_NGFW' in helloWorld_options_configure"
+    # variable names used in panos skillets and panHandler env mapped to Azure values
     transform:
       - name: TARGET_IP
         source: ngfw_ip_address["ip_address"]
