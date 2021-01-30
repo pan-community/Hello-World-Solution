@@ -54,39 +54,39 @@ variables:
   - name: untrust_subnet_cidr
     description: internet subnet cider
     default: 192.168.254.0/24
-    type_hint: text
+    type_hint: disabled
 
   - name: fw_untrust_ip
     description: internet ip address
     default: 192.168.254.65
-    type_hint: text
+    type_hint: disabled
 
   - name: trust_subnet_cidr
     description: internal subnet cider
     default: 192.168.0.0/24
-    type_hint: text
+    type_hint: disabled
 
   - name: fw_trust_ip
     description: internal ip address
     default: 192.168.0.65
-    type_hint: text
+    type_hint: disabled
 
   - name: client_02_trust_ip
     description: internal subnet cider
     default: 192.168.0.66
-    type_hint: text
+    type_hint: disabled
 
   - name: dmz_subnet_cidr
     description: dmz subnet cider
     default: 192.168.253.0/24
-    type_hint: text
+    type_hint: disabled
 
   - name: fw_dmz_ip
     description: dmz ip address
     default: 192.168.253.65
-    type_hint: text
+    type_hint: disabled
 
   - name: client_02_dmz_ip
     description: dmz subnet cider
     default: 192.168.253.67
-    type_hint: text
+    type_hint: disabled
