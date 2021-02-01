@@ -6,7 +6,7 @@ labels:
   collection: Hello World
 
 variables:
-  - name: TARGET_IP
+  - name: ip_address
     description: NGFW IP Address
     default: 192.168.55.10
     type_hint: text
@@ -15,11 +15,11 @@ variables:
   #  default: 443
   #  type_hint: number
   #  help_text: used in cases where non-standard ports are required
-  - name: TARGET_USERNAME
+  - name: username
     description: NGFW Username
     default: admin
     type_hint: text
-  - name: TARGET_PASSWORD
+  - name: password
     description: NGFW Password
     default:
     type_hint: password
