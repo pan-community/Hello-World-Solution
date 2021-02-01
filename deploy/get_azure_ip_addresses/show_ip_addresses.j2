@@ -4,9 +4,6 @@
 <br/>
 
 <h5 style="display: inline;">Resource Group: </h5>{{ resource_group_name }}
-
-<br/>
-<br/>
 <br/>
 
 <h5>Public IP Addresses</h5>
@@ -22,7 +19,14 @@
             <td>NGFW Management Interface</td>
             <td>{{ ngfw_ip_address["ip_address"] }}</td>
         </tr>
-
+        <tr>
+            <td>Ubuntu Internal Host</td>
+            <td> {{ client_01_ip_address["ip_address"] }}</td>
+        </tr>
+        <tr>
+            <td>Ubuntu DMZ Host</td>
+            <td> {{ client_02_ip_address["ip_address"] }}</td>
+        </tr>
 <br/>
 <br/>
 
