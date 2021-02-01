@@ -12,17 +12,17 @@ variables:
 -   name: ngfw_ip_address
     type_hint: hidden
     description: ngfw public mgmt interface address
-    default:
+    default: 1.2.3.4
 
 -   name: client_01_ip_address
     type_hint: hidden
     description: internal zone ubuntu public access interface address
-    default:
+    default: 2.3.4.5
 
 -   name: client_02_ip_address
     type_hint: hidden
     description: dmz zone ubuntu public access interface address
-    default:
+    default: 5.6.7.8
 
 -   name: untrust_subnet_cidr
     type_hint: hidden
