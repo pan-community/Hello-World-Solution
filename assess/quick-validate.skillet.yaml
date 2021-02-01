@@ -143,7 +143,7 @@ snippets:
         - name: capture_dns_sinkhole_configuration
         - name: DNS_sinkhole_configured
           label: |-
-            Enable DNS_Security in Anti-Spyware profile
+            Enable DNS Security in Anti-Spyware profile
           meta:
             product: DNS_Security
           documentation_link: |-
