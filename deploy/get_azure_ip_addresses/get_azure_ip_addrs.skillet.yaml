@@ -6,7 +6,7 @@ description: |
 type: rest
 labels:
     collection: lib
-    output_template: show_ip_addresses.test.j2
+    output_template: show_ip_addresses.j2
 
 variables:
 
