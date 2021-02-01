@@ -49,29 +49,12 @@ variables:
       - key: 9.1.6
         value: 9.1.6
 
-  # input variables used for the terraform deployment
-  # maps to the vars.tf variables
-  - name: untrust_subnet_cidr
-    description: internet subnet cider
-    default: 192.168.254.0/24
-    type_hint: text
-
-  - name: fw_untrust_ip
-    description: internet ip address
-    default: 192.168.254.65
-    type_hint: text
-
-  - name: trust_subnet_cidr
-    description: internal subnet cider
-    default: 192.168.0.0/24
-    type_hint: text
-
   - name: fw_trust_ip
     description: internal ip address
     default: 192.168.0.65
     type_hint: text
 
-  - name: client_02_trust_ip
+  - name: client_01_trust_ip
     description: internal subnet cider
     default: 192.168.0.66
     type_hint: text

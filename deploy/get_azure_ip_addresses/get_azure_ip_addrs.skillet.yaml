@@ -9,6 +9,7 @@ labels:
     output_template: show_ip_addresses.test.j2
 
 variables:
+
 -   name: ngfw_ip_address
     type_hint: text
     description: ngfw public mgmt interface address
