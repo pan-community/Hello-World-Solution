@@ -28,7 +28,7 @@ variables:
 -   name: untrust_subnet_cidr
     type_hint: text
     description: internet subnet cidr
-    default: ''
+    default: '192.168.5.5'
 
 -   name: fw_untrust_ip
     type_hint: text
