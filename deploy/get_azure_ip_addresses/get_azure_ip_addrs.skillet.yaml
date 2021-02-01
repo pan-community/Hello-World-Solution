@@ -6,61 +6,61 @@ description: |
 type: rest
 labels:
     collection: lib
-    output_template: show_ip_addresses.j2
+    output_template: show_ip_addresses.test.j2
 
 variables:
 -   name: ngfw_ip_address
-    type_hint: hidden
+    type_hint: text
     description: ngfw public mgmt interface address
     default: 1.2.3.4
 
 -   name: client_01_ip_address
-    type_hint: hidden
+    type_hint: text
     description: internal zone ubuntu public access interface address
     default: 2.3.4.5
 
 -   name: client_02_ip_address
-    type_hint: hidden
+    type_hint: text
     description: dmz zone ubuntu public access interface address
     default: 5.6.7.8
 
 -   name: untrust_subnet_cidr
-    type_hint: hidden
+    type_hint: text
     description: internet subnet cidr
     default:
 
 -   name: fw_untrust_ip
-    type_hint: hidden
+    type_hint: text
     description: firewall private internet ip address
     default:
 
 -   name: trust_subnet_cidr
-    type_hint: hidden
+    type_hint: text
     description: internal subnet cidr
     default:
 
 -   name: fw_trust_ip
-    type_hint: hidden
+    type_hint: text
     description: firewall private internal ip address
     default:
 
 -   name: dmz_subnet_cidr
-    type_hint: hidden
+    type_hint: text
     description: dmz subnet cidr
     default:
 
 -   name: fw_dmz_ip
-    type_hint: hidden
+    type_hint: text
     description: firewall private dmz ip address
     default:
 
 -   name: client_01_trust_ip
-    type_hint: hidden
+    type_hint: text
     description: client private internal ip address
     default:
 
 -   name: client_02_dmz_ip
-    type_hint: hidden
+    type_hint: text
     description: client private dmz ip address
     default:
 
