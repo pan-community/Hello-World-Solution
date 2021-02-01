@@ -1,0 +1,69 @@
+<div>
+<h5>Azure Topology Elements</h5>
+The following IP address have been assigned to the interfaces for topology resource group {{ resource_group_name }}
+
+<br/>
+<br/>
+
+<h5>Public IP Addresses</h5>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Device</th>
+            <th>IP Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>NGFW Management Interface</td>
+            <td>{{ ngfw_ip_address["ip_address"] }}</td>
+        </tr>
+        <tr>
+            <td>Ubuntu Internal Host</td>
+            <td> {{ client_01_ip_address["ip_address"] }}</td>
+        </tr>
+        <tr>
+            <td>Ubuntu DMZ Host</td>
+            <td> {{ client_02_ip_address["ip_address"] }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
+<br/>
+
+<h5>Sandbox Private IP Addresses</h5>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Device</th>
+            <th>Interface</th>
+            <th>IP Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>NGFW Internet Interface</td>
+            <td>ethernet1/1</td>
+            <td>{{ fw_untrust_ip ~ "/" ~ untrust_subnet_cidr.split('/')[1] }}</td>
+        </tr>
+        <tr>
+            <td>NGFW Internet Interface</td>
+            <td>ethernet1/2</td>
+            <td>{{ fw_trust_ip ~ "/" ~ trust_subnet_cidr.split('/')[1] }}</td>
+        </tr>
+        <tr>
+            <td>NGFW Internet Interface</td>
+            <td>ethernet1/3</td>
+            <td>{{ fw_dmz_ip ~ "/" ~ dmz_subnet_cidr.split('/')[1] }}</td>
+        </tr>
+        <tr>
+            <td>Ubuntu Internal Host</td>
+            <td>{{ client_01_trust_ip ~ "/" ~ trust_subnet_cidr.split('/')[1] }}</td>
+        </tr>
+        <tr>
+            <td>Ubuntu DMZ Host</td>
+            <td>{{ client_02_dmz_ip ~ "/" ~ dmz_subnet_cidr.split('/')[1] }}</td>
+        </tr>
+    </tbody>
+</table>
