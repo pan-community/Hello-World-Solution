@@ -49,6 +49,7 @@ variables:
         value: 'yes'
       - key: 'no'
         value: 'no'
+
 # snippets used for api configuration including xpath and element as file name
 # files will load in the order listed
 
