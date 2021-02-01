@@ -66,6 +66,3 @@ variables:
 
 
 snippets:
--   name: show_azure_ip_addrs
-    element: |-
-      output should be replaced with output_template reference above in the labels section
