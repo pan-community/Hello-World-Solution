@@ -3,7 +3,7 @@ label: pull panhandler Azure IP address context info
 description: |
     Designed for panhandler to get the topology IP addresses and display on screen.
     User should capture to have while working with the new topology.
-type: template
+type: rest
 labels:
     collection: lib
     output_template: show_ip_addresses.j2
