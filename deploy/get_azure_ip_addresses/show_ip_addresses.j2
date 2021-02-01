@@ -16,15 +16,15 @@ The following IP address have been assigned to the interfaces for topology resou
     <tbody>
         <tr>
             <td>NGFW Management Interface</td>
-            <td>{{ context["ngfw_ip_address"] }}</td>
+            <td>{{ context["ngfw_ip_address"]["ip_address"] }}</td>
         </tr>
         <tr>
             <td>Ubuntu Internal Host</td>
-            <td> {{ context["client_01_ip_address"] }}</td>
+            <td> {{ context["client_01_ip_address"]["ip_address"] }}</td>
         </tr>
         <tr>
             <td>Ubuntu DMZ Host</td>
-            <td> {{ context["client_02_ip_address"] }}</td>
+            <td> {{ context["client_02_ip_address"]["ip_address"] }}</td>
         </tr>
     </tbody>
 </table>

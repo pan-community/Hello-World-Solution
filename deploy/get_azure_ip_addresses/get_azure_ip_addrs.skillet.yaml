@@ -12,62 +12,62 @@ variables:
 
 -   name: resource_group_name
     description: Azure resource group name
-    type_hint: text
+    type_hint: hidden
     default: ''
 
 -   name: ngfw_ip_address
-    type_hint: text
     description: ngfw public mgmt interface address
-    default: 1.2.3.4
+    type_hint: hidden
+    default: ''
 
 -   name: client_01_ip_address
-    type_hint: text
     description: internal zone ubuntu public access interface address
-    default: 2.3.4.5
+    type_hint: hidden
+    default: ''
 
 -   name: client_02_ip_address
-    type_hint: text
     description: dmz zone ubuntu public access interface address
-    default: 5.6.7.8
+    type_hint: hidden
+    default: ''
 
 -   name: untrust_subnet_cidr
-    type_hint: text
     description: untrust_subnet_cidr
+    type_hint: hidden
     default: ''
 
 -   name: fw_untrust_ip
-    type_hint: text
     description: fw_untrust_ip
+    type_hint: hidden
     default: ''
 
 -   name: trust_subnet_cidr
-    type_hint: text
     description: trust_subnet_cidr
+    type_hint: hidden
     default: ''
 
 -   name: fw_trust_ip
-    type_hint: text
     description: fw_trust_ip
+    type_hint: hidden
     default: ''
 
 -   name: client_01_trust_ip
-    type_hint: text
     description: client_01_trust_ip
+    type_hint: hidden
     default: ''
 
 -   name: dmz_subnet_cidr
-    type_hint: text
     description: dmz_subnet_cidr
+    type_hint: hidden
     default: ''
 
 -   name: fw_dmz_ip
-    type_hint: text
     description: fw_dmz_ip
+    type_hint: hidden
     default: ''
 
 -   name: client_02_dmz_ip
-    type_hint: text
     description: client_02_dmz_ip
+    type_hint: hidden
     default: ''
 
 
