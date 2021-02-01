@@ -49,6 +49,21 @@ variables:
       - key: 9.1.6
         value: 9.1.6
 
+  - name: untrust_subnet_cidr
+    description: internet subnet cidr
+    default: 192.168.254.0/24
+    type_hint: text
+
+  - name: fw_untrust_ip
+    description: internal ip address
+    default: 192.168.254.65
+    type_hint: text
+
+  - name: trust_subnet_cidr
+    description: trust subnet cider
+    default: 192.168.0.0/24
+    type_hint: text
+
   - name: fw_trust_ip
     description: internal ip address
     default: 192.168.0.65
