@@ -10,6 +10,11 @@ labels:
 
 variables:
 
+-   name: resource_group_name
+    description: Azure resource group name
+    type_hint: text
+    default: ''
+
 -   name: ngfw_ip_address
     type_hint: text
     description: ngfw public mgmt interface address
