@@ -31,7 +31,7 @@
       debug:
         msg: "Initiating Upgrade / Downgrade Tool Version: {{ pb_version }}"
 
-    - name: Ensure deps are avabilable
+    - name: Ensure deps are available
       # Ensure we have all the right requirements installed in this environment
       pip:
         name:

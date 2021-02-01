@@ -58,17 +58,17 @@ report:
           - template: validation_table
             key: NGFW
 
-      - name: Threat_Prevention
+      - name: Threat Prevention
         content:
           - template: validation_table
             key: Threat_Prevention
 
-      - name: DNS_Security
+      - name: DNS Security
         content:
           - template: validation_table
             key: DNS_Security
 
-      - name: URL_Filtering
+      - name: URL Filtering
         content:
           - template: validation_table
             key: URL_Filtering
