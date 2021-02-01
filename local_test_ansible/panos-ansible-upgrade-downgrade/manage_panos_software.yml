@@ -55,7 +55,7 @@
       debug:
         msg: "Upgrade / Downgrade called with parameters: {{ sw_version }} -> {{ desired_version }}"
 
-   - block:
+    - block:
         - name: "Checking if we should bail out early"
           debug:
             msg: "Device is already in the desired state"
