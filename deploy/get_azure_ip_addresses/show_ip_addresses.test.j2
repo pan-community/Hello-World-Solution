@@ -60,10 +60,12 @@ The following IP address have been assigned to the interfaces for topology resou
         </tr>
         <tr>
             <td>Ubuntu Internal Host</td>
+            <td>firewall facing interface</td>
             <td>{{ context["client_01_trust_ip"] ~ "/" ~ context["trust_subnet_cidr"].split('/')[1] }}</td>
         </tr>
         <tr>
             <td>Ubuntu DMZ Host</td>
+            <td>firewall facing interface</td>
             <td>{{ context["client_02_dmz_ip"] ~ "/" ~ context["dmz_subnet_cidr"].split('/')[1] }}</td>
         </tr>
     </tbody>
