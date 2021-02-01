@@ -37,7 +37,7 @@ snippets:
         - name: capture_url_license_info
         - name: pandb_url_filtering
           label: |-
-            Ensure that PAN-DB URL_Filtering is used
+            Ensure that PAN-DB URL Filtering is used
           meta:
             product: URL_Filtering
           documentation_link: |-
@@ -49,7 +49,7 @@ snippets:
         - name: capture_url_filtering_block_override
         - name: url_filtering_block_or_override_test
           label: |-
-            Ensure that URL_Filtering uses the action of “block” or “override” on the
+            Ensure that URL Filtering uses the action of 'block' or 'override' on the
             <enterprise approved value> URL categories
           meta:
             product: URL_Filtering
@@ -198,7 +198,7 @@ snippets:
         - name: capture_url_filtering_in_policies
         - name: urlfiltering_profile_in_policies
           label: |-
-            Ensure secure URL_Filtering is enabled for all security policies allowing traffic to the Internet
+            Ensure secure URL Filtering is enabled for all security policies allowing traffic to the Internet
           meta:
             product: URL_Filtering
           documentation_link: |-
