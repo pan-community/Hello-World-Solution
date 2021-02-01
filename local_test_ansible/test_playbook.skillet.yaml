@@ -58,7 +58,7 @@ snippets:
     async: True
     cmd: |
       ansible-playbook -i '../local_test_ansible/panos-ansible-upgrade-downgrade/inventory.yml'
-      '../local_test_ansible/panos-ansible-upgrade-downgrade/manage_panos_software.yml' -e 'ip_address="{{ TARGET_IP }}"'
-      -e 'username="{{ TARGET_USERNAME }}"' -e 'password="{{ TARGET_PASSWORD }}"'
+      '../local_test_ansible/panos-ansible-upgrade-downgrade/manage_panos_software.yml' -e 'ip_address="{{ ip_address }}"'
+      -e 'username="{{ username }}"' -e 'password="{{ password }}"'
       -e 'auth_code="{{ auth_code}}"' -e 'desired_version="{{ desired_version }}"'
       -e 'force_update_content="{{ force_content_update }}"' -e 'update_av="{{ update_av }}"'
