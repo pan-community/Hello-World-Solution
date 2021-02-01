@@ -27,42 +27,42 @@ variables:
 
 -   name: untrust_subnet_cidr
     type_hint: text
-    description: internet subnet cidr
+    description: untrust_subnet_cidr
     default: ''
 
 -   name: fw_untrust_ip
     type_hint: text
-    description: firewall private internet ip address
+    description: fw_untrust_ip
     default: ''
 
 -   name: trust_subnet_cidr
     type_hint: text
-    description: internal subnet cidr
+    description: trust_subnet_cidr
     default: ''
 
 -   name: fw_trust_ip
     type_hint: text
-    description: firewall private internal ip address
+    description: fw_trust_ip
     default: ''
 
 -   name: client_01_trust_ip
     type_hint: text
-    description: client private internal ip address
+    description: client_01_trust_ip
     default: ''
 
 -   name: dmz_subnet_cidr
     type_hint: text
-    description: dmz subnet cidr
+    description: dmz_subnet_cidr
     default: ''
 
 -   name: fw_dmz_ip
     type_hint: text
-    description: firewall private dmz ip address
+    description: fw_dmz_ip
     default: ''
 
 -   name: client_02_dmz_ip
     type_hint: text
-    description: client private dmz ip address
+    description: client_02_dmz_ip
     default: ''
 
 
