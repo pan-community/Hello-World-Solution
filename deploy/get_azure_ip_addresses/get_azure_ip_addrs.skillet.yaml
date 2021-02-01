@@ -21,12 +21,12 @@ variables:
     default: ''
 
 -   name: client_01_ip_address
-    description: internal zone ubuntu public access interface address
+    description: internal client ubuntu public access interface address
     type_hint: hidden
     default: ''
 
 -   name: client_02_ip_address
-    description: dmz zone ubuntu public access interface address
+    description: dmz client ubuntu public access interface address
     type_hint: hidden
     default: ''
 
