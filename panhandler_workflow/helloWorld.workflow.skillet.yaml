@@ -1,45 +1,51 @@
 # Hello World solution workflow
 
 name: hello_world_workflow_panos10
-label: Hello World options selection and workflow
+label: CDP Hello World Solution workflow menu
 description: |
-  this workflow steps through the Hello World solution elements
+  This workflow steps through the Hello World solution elements.
+  Users can select with stages should be applied as part of the workflow.
 
 type: workflow
 
 labels:
+    help_link: https://gitlab.com/panw-gse/as/hello-world-solution/-/blob/master/README.md
+    help_link_title: Hello World Solution explained
     collection:
       - Hello World
 
 variables:
 
   - name: helloWorld_options_deploy
-    description: select Hello World deployment options
+    description: Deploy
     default: []
     type_hint: checkbox
     cbx_list:
-      - key: deploy topology in Azure
+      - key: deploy or destroy the topology in Azure
         value: deploy_in_azure
-      - key: baseline deployed devices
+      - key: baseline the NGFW
         value: deploy_baseline
+    help_text: The deploy stage will implement the topology and ensure its ready for configuration
 
   - name: helloWorld_options_configure
-    description: select Hello World configuration options
+    description: Configure
     default: []
     type_hint: checkbox
     cbx_list:
       - key: load empty baseline configuration
         value: load_baseline_config
-      - key: configure NGFW
+      - key: configure the NGFW
         value: configure_NGFW
+    help_text: configure the NGFW with 3 zones and interfaces based on the deployed topology
 
   - name: helloWorld_options_assess
-    description: select Hello World assessment options
+    description: Assess
     default: []
     type_hint: checkbox
     cbx_list:
       - key: run assessment report
         value: run_assessment
+    help_text: validation and compliance reports using device configuration and state information
 
 
 snippets:
