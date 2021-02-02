@@ -131,7 +131,41 @@ playlist model.
 Running the assessment will output a report showing a variety of validation 
 results based on product security services.
 
+## Solution Submodules
 
+The Common Design Principle model is based on the idea of shareable and 
+re-usable content housed in a tech library. This content is pulled into the 
+hello world solution as git submodules.
+
+* deployment-tools: provide the Azure login and subscription selection
+* topology-1-ngfw-2-hosts: terraform templates to deploy the topology
+* panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
+* ironskillet-components: IronSkillet snippets used in the configure playlist
+* panos-config-elements: reference snippets to configure the NGFW
+* panos-validation-snippets: reference snippets for the assessment report
+
+The workflow and playlists skillets reference various elements within the 
+submodules to:
+
+1. simplify solution development by referencing items from the tech library
+2. use automations that may be outside a user's core competence
+3. easily get source content updates without having to copy-paste content
+
+## Support Policy
+The code and templates in the repo are released under an as-is, best effort,
+support policy. These scripts should be seen as community supported and
+Palo Alto Networks will contribute our expertise as and when possible.
+We do not provide technical support or help in using or troubleshooting the
+components of the project through our normal support options such as
+Palo Alto Networks support teams, or ASC (Authorized Support Centers)
+partners and backline support options. The underlying product used
+(the VM-Series firewall) by the scripts or templates are still supported,
+but the support is only for the product functionality and not for help in
+deploying or using the template or script itself. Unless explicitly tagged,
+all projects or work posted in our GitHub repository
+(at https://github.com/PaloAltoNetworks) or sites other than our official
+Downloads page on https://support.paloaltonetworks.com are provided under
+the best effort policy.
 
 
 
