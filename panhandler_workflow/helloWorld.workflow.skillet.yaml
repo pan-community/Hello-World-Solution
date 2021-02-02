@@ -74,7 +74,7 @@ snippets:
     # variable names used in the ansible upgrade playbook mapped to Azure values
     transform:
       - name: ip_address
-        source: ngfw_ip_address["ip_address"]
+        source: ngfw_ip_address
       - name: username
         source: admin_username
       - name: password
@@ -84,7 +84,7 @@ snippets:
     when: "'load_baseline_config' in helloWorld_options_configure"
     transform:
       - name: TARGET_IP
-        source: ngfw_ip_address["ip_address"]
+        source: ngfw_ip_address
       - name: TARGET_USERNAME
         source: admin_username
       - name: TARGET_PASSWORD
@@ -96,7 +96,7 @@ snippets:
     # variable names used in panos skillets and panHandler env mapped to Azure values
     transform:
       - name: TARGET_IP
-        source: ngfw_ip_address["ip_address"]
+        source: ngfw_ip_address
       - name: TARGET_USERNAME
         source: admin_username
       - name: TARGET_PASSWORD
@@ -115,7 +115,7 @@ snippets:
     when: "'run_assessment' in helloWorld_options_assess"
     transform:
       - name: TARGET_IP
-        source: ngfw_ip_address["ip_address"]
+        source: ngfw_ip_address
       - name: TARGET_USERNAME
         source: admin_username
       - name: TARGET_PASSWORD
