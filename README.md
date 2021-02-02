@@ -1,57 +1,141 @@
-# Hello World Solution
+# Common Design Principles: Hello World Solution
 
-basic solution leveraging content found in the tech library
+Suite of pre-built automations to implement an Azure sandbox topology with a 
+NGFW and two Ubuntu hosts.
+
+Common Design Principles is based on a stack model to create an extensible
 
 ### Deploy
 
- * stand up VM-50 in AWS
- * update to latest 10.0.x and license
- * include content updates
+ * Stand up the NGFW + 2 Ubuntu hosts in Azure
+ * Baseline the NGFW: licensing, content updates, software upgrades
  
 ### Configure
 
- * load a basic internet gateway configuration
- 
+ * configure the NGFW as a 3-zone/interface gateway
+ * coming soon: Ubuntu host routing configuration
+
+### Exercise
+
+ * coming soon: traffic generation from Ubuntu hosts
+
 ### Assess
 
- * run a CIS-lite validation
- * use traffic gen from the host to create log data
+ * validation report using a small set of compliance checks
  
- 
-## Auto-Install Playbook for Deploy and Configure
 
-This playbook is a combination of other playbooks created locally or as tech
- library elements added as submodules.
+## Prerequisites
 
- * deploy the solution topology (coming soon...)
- * baseline the ngfw (license, sw version, content updates)
- * IronSkillet + Internet gateway NGFW configuration
+The following are required to use the hello world solution:
 
-### Usage
+* Azure subscription
+* VM-100 authcode (VM-50 is NOT supported in Azure)
+* panhandler installed to run the solution workflow
 
-This runs as part of a python3 virtual environment.
+## Usage
 
-> Users will need to create the python virtual environment and
-> install ansible and pan-os-python
+1. Import the Hello World solution project
+2. play the workflow skillet
+3. check the boxes for required workflow stages and Submit
 
-Command to run the playbook
-```bash
+#### Azure Deploy with Terraform
 
-ansible-playbook -i inventory.yml auto-deploy-configure.yml -e 'ip_address
-=192.168.55.177' -e 'username=admin' -e 'password=Sec ret Pass word' -e
- 'auth_code
-=IBADCODE' -e 'desired_version=10.0.3' -e 'force_update_content=yes' -e
- 'update_av=yes'
+This workflow stage will authenticate the user to their Azure account and 
+select the subscription to be used for the toplogy deployment.
 
-```
+##### Terraform Stages
+Once authenticated, a terraform template is used to implement the topology 
+in Azure. 
+The user will click through a series of terraform stages:
 
-Variables passed into the playbook:
+1. Init: initialize a working directory for the configuration files
+2. Validate: validate the configuration files in the working directory
+3. Plan: create the execution to deploy the topology
+4. Apply: apply the changes to reach the desired state based on the plan
 
-    * ip_address/admin/password: device auth credentials
-    * auth_code: VM-series auth code to license the NGFW
-    * desired_version: PAN-OS sw version to load
-    * force_update_content: always install content updates
-    * update_av: install the anti-virus updates
+> The first three stages (Init, Validate, Plan) take only a few moments 
+> requiring the user to click to the next stage of the workflow. The Apply 
+> stage can take 10-15 minutes to reach completion.
+
+> The user can also Destroy the topology by running the Deploy workflow 
+> option again. Only the resource group name is required to destroy the 
+> topology although other web form fields are available
+
+> A certificate error may happen during the plan stage if the user is behind 
+> a firewall or other device that may decrypt or force the user of other 
+> endpoint certificates
+
+##### User Inputs
+The following inputs are required to deploy the topology:
+
+* resource group name: unique name within the subscription that contains all of 
+  the topology elements
+  
+* region: select a region for the deployment location
+
+* admin username and password: authentications for the NGFW and hosts
+
+* PAN-OS NGFW version: software version used for the deployed image
+
+> recommendation to use the user's last name or unique identifier as a 
+> prefix for the resource group name
+
+> the public IP addresses assigned by Azure to access the topology devices 
+> along with the input admin username and password 
+> are captured in this stage of the workflow and used to (1) update the 
+> target IP/user/password info in panhandler and (2) create updated input 
+> variables for device configuration
+
+### Baseline the NGFW
+
+This stage uses an Ansible playbook to license the firewall, apply 
+content/anti-virus updates, then upgrade the software to the latest version 
+if required.
+
+##### User Inputs
+The following inputs are required to baseline the NGFW:
+
+* auth-code: activated VM-series auth-code used for licensing
+* desired sw version: target software version for the topology
+* content updates: set as 'yes' to ensure content updates are applied
+
+> The auth-code must be activated in the Customer Support Portal and should 
+> be a VM-100 series or greater. VM-50 is not supported in Azure
+
+> Applying the auth-code will soft reboot the NGFW. The playbook will 
+> continue to reconnect during this time
+
+### Configure the NGFW
+
+This stage will use a configuration skillet playlist to reference existing 
+snippets based on recommended practices and reference topologies.
+
+1. Configure a subset of IronSkillet snippets to harden the device, set 
+   update schedules, and configure security profiles and groups
+   
+2. Configure sandbox/demo elements such as idle timeout that replace 
+   recommended IronSkillet configuration with demo friendly modifications
+   
+3. Configure interfaces, zones, routing, and security policies specific to 
+   the topology that reference IronSkillet configured elements
+   
+> As part of the workflow, the IP address information applied in the 
+> Terraform templates are captured and parsed to pre-populate the IP address 
+> information for the NGFW configuration.
+
+### Assess the NGFW
+
+This option allows the user to demonstrate validation skillets using a 
+playlist model. 
+
+Running the assessment will output a report showing a variety of validation 
+results based on product security services.
+
+
+
+
+
+
     
 
  
