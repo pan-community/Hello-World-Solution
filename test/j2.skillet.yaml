@@ -1,0 +1,11 @@
+name: test_output_j2
+label: show panhandler Azure IP address context info
+description: |
+    Designed for panhandler to get the topology IP addresses and display on screen.
+    User should capture to have while working with the new topology.
+type: rest
+labels:
+    collection: lib
+    output_template: output.j2
+
+snippets:
