@@ -137,6 +137,9 @@ The Common Design Principle model is based on the idea of shareable and
 re-usable content housed in a tech library. This content is pulled into the 
 hello world solution as git submodules.
 
+The tech library content can be found at: https://gitlab.com/panw-gse/tech-library
+
+
 * deployment-tools: provide the Azure login and subscription selection
 * topology-1-ngfw-2-hosts: terraform templates to deploy the topology
 * panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
