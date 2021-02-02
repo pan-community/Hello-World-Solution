@@ -32,10 +32,10 @@ variables:
     default: []
     type_hint: checkbox
     cbx_list:
-      - key: load empty baseline configuration
-        value: load_baseline_config
       - key: configure the NGFW
         value: configure_NGFW
+      - key: load empty baseline configuration (for testing or to load a different configuration)
+        value: load_baseline_config
     help_text: configure the NGFW with 3 zones and interfaces based on the deployed topology
 
   - name: helloWorld_options_assess
