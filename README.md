@@ -7,30 +7,30 @@ Common Design Principles is based on a stack model to create an extensible
 
 ### Deploy
 
- * Stand up the NGFW + 2 Ubuntu hosts in Azure
- * Baseline the NGFW: licensing, content updates, software upgrades
+     * Stand up the NGFW + 2 Ubuntu hosts in Azure
+     * Baseline the NGFW: licensing, content updates, software upgrades
  
 ### Configure
 
- * configure the NGFW as a 3-zone/interface gateway
- * coming soon: Ubuntu host routing configuration
+     * configure the NGFW as a 3-zone/interface gateway
+     * coming soon: Ubuntu host routing configuration
 
 ### Exercise
 
- * coming soon: traffic generation from Ubuntu hosts
+     * coming soon: traffic generation from Ubuntu hosts
 
 ### Assess
 
- * validation report using a small set of compliance checks
+     * validation report using a small set of compliance checks
  
 
 ## Prerequisites
 
 The following are required to use the hello world solution:
 
-* Azure subscription
-* VM-100 authcode (VM-50 is NOT supported in Azure)
-* panhandler installed to run the solution workflow
+    * Azure subscription
+    * VM-100 authcode (VM-50 is NOT supported in Azure)
+    * panhandler installed to run the solution workflow
 
 ## Usage
 
@@ -48,10 +48,10 @@ Once authenticated, a terraform template is used to implement the topology
 in Azure. 
 The user will click through a series of terraform stages:
 
-1. Init: initialize a working directory for the configuration files
-2. Validate: validate the configuration files in the working directory
-3. Plan: create the execution to deploy the topology
-4. Apply: apply the changes to reach the desired state based on the plan
+    1. Init: initialize a working directory for the configuration files
+    2. Validate: validate the configuration files in the working directory
+    3. Plan: create the execution to deploy the topology
+    4. Apply: apply the changes to reach the desired state based on the plan
 
 > The first three stages (Init, Validate, Plan) take only a few moments 
 > requiring the user to click to the next stage of the workflow. The Apply 
@@ -71,11 +71,9 @@ The following inputs are required to deploy the topology:
 * resource group name: unique name within the subscription that contains all of 
   the topology elements
   
-* region: select a region for the deployment location
-
-* admin username and password: authentications for the NGFW and hosts
-
-* PAN-OS NGFW version: software version used for the deployed image
+    * region: select a region for the deployment location
+    * admin username and password: authentications for the NGFW and hosts
+    * PAN-OS NGFW version: software version used for the deployed image
 
 > recommendation to use the user's last name or unique identifier as a 
 > prefix for the resource group name
@@ -95,9 +93,9 @@ if required.
 ##### User Inputs
 The following inputs are required to baseline the NGFW:
 
-* auth-code: activated VM-series auth-code used for licensing
-* desired sw version: target software version for the topology
-* content updates: set as 'yes' to ensure content updates are applied
+    * auth-code: activated VM-series auth-code used for licensing
+    * desired sw version: target software version for the topology
+    * content updates: set as 'yes' to ensure content updates are applied
 
 > The auth-code must be activated in the Customer Support Portal and should 
 > be a VM-100 series or greater. VM-50 is not supported in Azure
@@ -140,12 +138,12 @@ hello world solution as git submodules.
 The tech library content can be found at: https://gitlab.com/panw-gse/tech-library
 
 
-* deployment-tools: provide the Azure login and subscription selection
-* topology-1-ngfw-2-hosts: terraform templates to deploy the topology
-* panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
-* ironskillet-components: IronSkillet snippets used in the configure playlist
-* panos-config-elements: reference snippets to configure the NGFW
-* panos-validation-snippets: reference snippets for the assessment report
+    * deployment-tools: provide the Azure login and subscription selection
+    * topology-1-ngfw-2-hosts: terraform templates to deploy the topology
+    * panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
+    * ironskillet-components: IronSkillet snippets used in the configure playlist
+    * panos-config-elements: reference snippets to configure the NGFW
+    * panos-validation-snippets: reference snippets for the assessment report
 
 The workflow and playlists skillets reference various elements within the 
 submodules to:
