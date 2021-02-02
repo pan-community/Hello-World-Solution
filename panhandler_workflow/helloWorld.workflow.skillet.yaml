@@ -45,6 +45,8 @@ variables:
     cbx_list:
       - key: run assessment report
         value: run_assessment
+      - key: quick view of Azure IP info in panhandler context
+        value: quick_view_azure_ip_info
     help_text: validation and compliance reports using device configuration and state information
 
 
@@ -118,3 +120,8 @@ snippets:
         source: admin_username
       - name: TARGET_PASSWORD
         source: admin_password
+
+# run NGFW assessment
+  - name: show_azure_topology_ip_addresses
+    when: "'quick_view_azure_ip_info' in helloWorld_options_assess"
+
