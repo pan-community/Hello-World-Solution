@@ -3,7 +3,8 @@
 Suite of pre-built automations to implement an Azure sandbox topology with a 
 NGFW and two Ubuntu hosts.
 
-Common Design Principles is based on a stack model to create an extensible
+Common Design Principles is based on a stack model to create an extensible 
+framework to mix-and-match solution elements 
 
 ### Deploy
 
