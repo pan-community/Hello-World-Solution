@@ -4,11 +4,11 @@ Table of contents:
 ==================
 
 - [Hello World Solution topology](#hello-world-solution-topology)
-- [Common Design Principle Stack Concept](#common-design-principle-stack-concept)
-- [Tech Library Submodules](#tech-library-submodules)
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Workflow options](#workflow-options)
+- [Common Design Principle Stack Concept](#common-design-principle-stack-concept)
+- [Tech Library Submodules](#tech-library-submodules)
 - [Support Policy](#support-policy)
 
 
@@ -24,54 +24,14 @@ NGFW and two Ubuntu hosts.
 
 <br/><br/>
 
-<br/>
 
-# Common Design Principle Stack Concept
-
-The Common Design Principles concept is based on a stack model to create an extensible 
-framework to mix-and-match solution elements. As an example, the same deployed topology
-can be baselined with a required software version and configuration depending on the use
-case. As a different example, similar deployments of a topology in separate networks can 
-take advantage of the same baseline and configuration elements.
-
-<br/>
-
-<img width="600" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-stack.png" xmlns="http://www.w3.org/1999/html">
-
-<br/><br/>
-
-# Tech Library Submodules
-
-The Common Design Principle concept also promotes solutions created using shareable and 
-re-usable content housed in a tech library. Pre-built content is available for each layer
-of the solution stack. This content is pulled into the hello world solution as git submodules.
-
-The tech library content can be found at: https://gitlab.com/panw-gse/tech-library
-
-The workflow and playlists skillets utilize the tech library to:
-
-1. simplify solution development by referencing items from the tech library
-2. use automations that may be outside a user's core competence
-3. easily get source content updates without having to copy-paste content
-
-
-The hello world solution uses the following tech library components:
-
-* deployment-tools: provide the Azure login and subscription selection
-* topology-1-ngfw-2-hosts: terraform templates to deploy the topology
-* panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
-* ironskillet-components: IronSkillet snippets used in the configure playlist
-* panos-config-elements: reference snippets to configure the NGFW
-* panos-validation-snippets: reference snippets for the assessment report
-
-<br/>
 
 Prerequisites
 ============
 
 The following are required to implement the hello world solution:
 
-* Azure subscription
+* Azure subscription for the topology deployment
 * VM-100 authcode activated in the [Palo Alto Networks Customer Support Portal](https://support.paloaltonetworks.com) (VM-50 is NOT supported in Azure)
 * [panhandler installed](https://live.paloaltonetworks.com/t5/skillet-tools/install-and-get-started-with-panhandler/ta-p/307916) to run the solution workflow
 
@@ -83,6 +43,9 @@ Usage
 1. import the Hello World solution repository into panhandler
 2. play the workflow skillet
 3. check the boxes for required workflow stages and Submit
+
+> The [pahandler install and user guide](https://live.paloaltonetworks.com/t5/skillet-district/ct-p/Skillets) provides instructions
+> for installation, importing and updating repositories, and running skillets.
 
 <br/>
 
@@ -163,7 +126,6 @@ is shown on screen and can be saved or printed for future reference.
 
 ### Baseline the NGFW
 
-
 This stage uses an Ansible playbook to license the firewall, apply 
 content/anti-virus updates, then upgrade the software to the latest version 
 if required.
@@ -237,6 +199,47 @@ Running this option will import and load an empty configuration as the candidate
 This option will pull the Azure IP address information cached in the panhandler context. This is useful to view the public and private IP
 addresses used in the topology.
 
+<br/>
+
+# Common Design Principle Stack Concept
+
+The Common Design Principles concept is based on a stack model to create an extensible 
+framework to mix-and-match solution elements. As an example, the same deployed topology
+can be baselined with a required software version and configuration depending on the use
+case. As a different example, similar deployments of a topology in separate networks can 
+take advantage of the same baseline and configuration elements.
+
+<br/>
+
+<img width="600" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-stack.png" xmlns="http://www.w3.org/1999/html">
+
+<br/><br/>
+
+# Tech Library Submodules
+
+The Common Design Principle concept also promotes solutions created using shareable and 
+re-usable content housed in a tech library. Pre-built content is available for each layer
+of the solution stack. This content is pulled into the hello world solution as git submodules.
+
+The tech library content can be found at: https://gitlab.com/panw-gse/tech-library
+
+The workflow and playlists skillets utilize the tech library to:
+
+1. simplify solution development by referencing items from the tech library
+2. use automations that may be outside a user's core competence
+3. easily get source content updates without having to copy-paste content
+
+
+The hello world solution uses the following tech library components:
+
+* deployment-tools: provide the Azure login and subscription selection
+* topology-1-ngfw-2-hosts: terraform templates to deploy the topology
+* panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
+* ironskillet-components: IronSkillet snippets used in the configure playlist
+* panos-config-elements: reference snippets to configure the NGFW
+* panos-validation-snippets: reference snippets for the assessment report
+
+<br/>
 
 <br/><br/>
 
