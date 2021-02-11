@@ -1,19 +1,28 @@
 # Common Design Principles: Hello World Solution
 
-This solution contains a suite of pre-built automations to implement an Azure sandbox topology with a 
+This solution contains a suite of pre-built automations to implement an Azure sandbox topology with a VM-series
 NGFW and two Ubuntu hosts.
 
 <img width="800" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-topology.png" xmlns="http://www.w3.org/1999/html">
 
 <br/><br/>
 
-Common Design Principles is based on a stack model to create an extensible 
-framework to mix-and-match solution elements 
+The Common Design Principles concept is based on a stack model to create an extensible 
+framework to mix-and-match solution elements. As an example, the same deployed topology
+can be baselined with a required software version and configuration depending on the use
+case. As a different example, similar deployments of a topology in separate networks can 
+take advantage of the same baseline and configuration elements.
+
+<br/>
+
+<img width="800" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-stack.png" xmlns="http://www.w3.org/1999/html">
+
+<br/><br/>
 
 ### Deploy
 
-     * Stand up the NGFW + 2 Ubuntu hosts in Azure
-     * Baseline the NGFW: licensing, content updates, software upgrades
+    * instantiate or destroy the NGFW + 2 Ubuntu hosts topology in Azure
+    * baseline the NGFW: licensing, content updates, software upgrades
  
 ### Configure
 
@@ -33,9 +42,9 @@ framework to mix-and-match solution elements
 
 The following are required to use the hello world solution:
 
-    * Azure subscription
-    * VM-100 authcode (VM-50 is NOT supported in Azure)
-    * panhandler installed to run the solution workflow
+* Azure subscription
+* VM-100 authcode (VM-50 is NOT supported in Azure)
+* panhandler installed to run the solution workflow
 
 ## Usage
 
