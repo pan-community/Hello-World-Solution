@@ -19,23 +19,26 @@ take advantage of the same baseline and configuration elements.
 
 <br/><br/>
 
+Stack layer elements included in the Hello World solution
+=========================================================
+
 ### Deploy
 
-    * instantiate or destroy the NGFW + 2 Ubuntu hosts topology in Azure
-    * baseline the NGFW: licensing, content updates, software upgrades
+* instantiate or destroy the NGFW + 2 Ubuntu hosts topology in Azure
+* baseline the NGFW: licensing, content updates, software upgrades
  
 ### Configure
 
-     * configure the NGFW as a 3-zone/interface gateway
-     * coming soon: Ubuntu host routing configuration
+* configure the NGFW as a 3-zone/interface gateway
+* coming soon: Ubuntu host routing configuration
 
 ### Exercise
 
-     * coming soon: traffic generation from Ubuntu hosts
+* coming soon: traffic generation from Ubuntu hosts
 
 ### Assess
 
-     * validation report using a small set of compliance checks
+* validation report using a small set of compliance checks
  
 
 ## Prerequisites
