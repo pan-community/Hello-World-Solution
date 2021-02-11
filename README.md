@@ -87,6 +87,7 @@ Workflow options
 
 - [deploy or destroy the topology in Azure](#deploy-or-destroy-the-topology-in-azure)
 - [Baseline the NGFW](#baseline-the-ngfw)
+- [Configure the NGFW](#configure-the-ngfw)
 - [Assess the NGFW](#assess-the-ngfw)
 
 The solution workflow is organized by stack layers and allows a user to select one or more options. 
