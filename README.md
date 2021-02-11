@@ -4,12 +4,11 @@ Table of contents:
 ==================
 
 - [Hello World Solution topology](#hello-world-solution-topology)
-- [Common Design Principle Stack](#common-design-principle-stack)
-- [Stack Elements](#stack-elements)
+- [Common Design Principle Stack Concept](#common-design-principle-stack-concept)
+- [Tech Library Submodules](#tech-library-submodules)
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Workflow options](#workflow-options)
-- [Solution Submodules](#solution-submodules)
 - [Support Policy](#support-policy)
 
 
@@ -25,8 +24,9 @@ NGFW and two Ubuntu hosts.
 
 <br/><br/>
 
-# Common Design Principle Stack
+<br/>
 
+# Common Design Principle Stack Concept
 
 The Common Design Principles concept is based on a stack model to create an extensible 
 framework to mix-and-match solution elements. As an example, the same deployed topology
@@ -40,43 +40,47 @@ take advantage of the same baseline and configuration elements.
 
 <br/><br/>
 
-# Stack Elements
+# Tech Library Submodules
 
-### Deploy
+The Common Design Principle concept also promotes solutions created using shareable and 
+re-usable content housed in a tech library. Pre-built content is available for each layer
+of the solution stack. This content is pulled into the hello world solution as git submodules.
 
-* instantiate or destroy the NGFW + 2 Ubuntu hosts topology in Azure
-* baseline the NGFW: licensing, content updates, software upgrades
- 
-### Configure
+The tech library content can be found at: https://gitlab.com/panw-gse/tech-library
 
-* configure the NGFW as a 3-zone/interface gateway
-* coming soon: Ubuntu host routing configuration
+The workflow and playlists skillets utilize the tech library to:
 
-### Exercise
+1. simplify solution development by referencing items from the tech library
+2. use automations that may be outside a user's core competence
+3. easily get source content updates without having to copy-paste content
 
-* coming soon: traffic generation from Ubuntu hosts
 
-### Assess
+The hello world solution uses the following tech library components:
 
-* validation report using a small set of compliance checks
- 
+* deployment-tools: provide the Azure login and subscription selection
+* topology-1-ngfw-2-hosts: terraform templates to deploy the topology
+* panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
+* ironskillet-components: IronSkillet snippets used in the configure playlist
+* panos-config-elements: reference snippets to configure the NGFW
+* panos-validation-snippets: reference snippets for the assessment report
+
 <br/>
 
 Prerequisites
 ============
 
-The following are required to use the hello world solution:
+The following are required to implement the hello world solution:
 
 * Azure subscription
-* VM-100 authcode (VM-50 is NOT supported in Azure)
-* panhandler installed to run the solution workflow
+* VM-100 authcode activated in the [Palo Alto Networks Customer Support Portal](https://support.paloaltonetworks.com) (VM-50 is NOT supported in Azure)
+* [panhandler installed](https://live.paloaltonetworks.com/t5/skillet-tools/install-and-get-started-with-panhandler/ta-p/307916) to run the solution workflow
 
 <br/>
 
 Usage
 =====
 
-1. import the Hello World solution project into panhandler
+1. import the Hello World solution repository into panhandler
 2. play the workflow skillet
 3. check the boxes for required workflow stages and Submit
 
@@ -85,15 +89,25 @@ Usage
 Workflow options
 ================
 
-- [deploy or destroy the topology in Azure](#deploy-or-destroy-the-topology-in-azure)
-- [Baseline the NGFW](#baseline-the-ngfw)
-- [Configure the NGFW](#configure-the-ngfw)
-- [Assess the NGFW](#assess-the-ngfw)
+- [Deploy](#deploy)  
+   - [deploy or destroy the topology in Azure](#deploy-or-destroy-the-topology-in-azure)
+   - [Baseline the NGFW](#baseline-the-ngfw)
+- [Configure](#configure)
+  - [Configure the NGFW](#configure-the-ngfw)
+- [Exercise](#exercise)
+  - coming soon...
+- [Assess](#assess)
+  - [Assess the NGFW](#assess-the-ngfw)
+- [Helper Utilities](#helper-utilities)
+   - [load empty NGFW baseline configuration](#load-empty-ngfw-baseline-configuration)
+   - [quick view of Azure IP info in panhandler context](#quick-view-of-azure-ip-info-in-panhandler-context)
 
 The solution workflow is organized by stack layers and allows a user to select one or more options. 
-Additional non-stack helper utilities are also provided and detailed below.
+Additional non-stack helper utilities are also provided
 
 <br/>
+
+# Deploy
 
 ### deploy or destroy the topology in Azure
 
@@ -101,7 +115,7 @@ Additional non-stack helper utilities are also provided and detailed below.
 This workflow stage will authenticate the user to their Azure account, allow them to
 select a subscription, and then deploy the topology.
 
-#### User Inputs
+##### User Inputs
 The following inputs are required to deploy the topology:
 
 * resource group name: unique name within the subscription that contains all of 
@@ -142,7 +156,7 @@ variables for device configuration. An output table with all topology IP address
 is shown on screen and can be saved or printed for future reference.
 
 > A certificate error may happen during the plan stage if the user is behind 
-> a firewall or other device that may decrypt or force the user of other 
+> a firewall or other device that may decrypt or force the use of other 
 > endpoint certificates
 
 <br/>
@@ -154,7 +168,7 @@ This stage uses an Ansible playbook to license the firewall, apply
 content/anti-virus updates, then upgrade the software to the latest version 
 if required.
 
-#### User Inputs
+##### User Inputs
 The following inputs are required to baseline the NGFW:
 
 * auth-code: activated VM-series auth-code used for licensing
@@ -168,6 +182,8 @@ The following inputs are required to baseline the NGFW:
 > continue to reconnect during this time
 
 <br/>
+
+# Configure
 
 ### Configure the NGFW
 
@@ -190,6 +206,14 @@ snippets based on recommended practices and reference topologies.
 
 <br/>
 
+# Exercise
+
+coming soon...
+
+<br/>
+
+# Assess
+
 ### Assess the NGFW
 
 This option allows the user to demonstrate validation skillets using a 
@@ -200,28 +224,19 @@ results based on product security services.
 
 <br/>
 
-## Solution Submodules
+# Helper Utilities
 
-The Common Design Principle model is based on the idea of shareable and 
-re-usable content housed in a tech library. This content is pulled into the 
-hello world solution as git submodules.
+These additional workflow items are used outside the standard workflow.
 
-The tech library content can be found at: https://gitlab.com/panw-gse/tech-library
+### load empty NGFW baseline configuration
 
+Running this option will import and load an empty configuration as the candidate configuration using the existing administrator credentials.
 
-* deployment-tools: provide the Azure login and subscription selection
-* topology-1-ngfw-2-hosts: terraform templates to deploy the topology
-* panos-ansible-upgrade-downgrade: Ansible playbook used to baseline the NGFW
-* ironskillet-components: IronSkillet snippets used in the configure playlist
-* panos-config-elements: reference snippets to configure the NGFW
-* panos-validation-snippets: reference snippets for the assessment report
+### quick view of Azure IP info in panhandler context
 
-The workflow and playlists skillets reference various elements within the 
-submodules to:
+This option will pull the Azure IP address information cached in the panhandler context. This is useful to view the public and private IP
+addresses used in the topology.
 
-1. simplify solution development by referencing items from the tech library
-2. use automations that may be outside a user's core competence
-3. easily get source content updates without having to copy-paste content
 
 <br/><br/>
 
