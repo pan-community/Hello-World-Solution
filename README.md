@@ -1,5 +1,22 @@
 # Common Design Principles: Hello World Solution
 
+Table of contents:
+==================
+
+- [Hello World Solution topology](#hello-world-solution-topology)
+- [Common Design Principle Stack](#common-design-principle-stack)
+- [Stack Elements](#stack-elements)
+- [Prerequisites](#prerequisites)
+- [Usage](#usage)
+- [Workflow options](#workflow-options)
+- [Support Policy](#support-policy)
+
+
+<br/>
+
+# Hello World Solution topology
+
+
 This solution contains a suite of pre-built automations to implement an Azure sandbox topology with a VM-series
 NGFW and two Ubuntu hosts.
 
@@ -7,8 +24,8 @@ NGFW and two Ubuntu hosts.
 
 <br/><br/>
 
-The Common Design Principles Stack
-==================================
+# Common Design Principle Stack
+
 
 The Common Design Principles concept is based on a stack model to create an extensible 
 framework to mix-and-match solution elements. As an example, the same deployed topology
@@ -22,8 +39,7 @@ take advantage of the same baseline and configuration elements.
 
 <br/><br/>
 
-Stack layer elements included in the Hello World solution
-=========================================================
+# Stack Elements
 
 ### Deploy
 
@@ -43,6 +59,7 @@ Stack layer elements included in the Hello World solution
 
 * validation report using a small set of compliance checks
  
+<br/>
 
 Prerequisites
 ============
@@ -53,6 +70,8 @@ The following are required to use the hello world solution:
 * VM-100 authcode (VM-50 is NOT supported in Azure)
 * panhandler installed to run the solution workflow
 
+<br/>
+
 Usage
 =====
 
@@ -60,12 +79,21 @@ Usage
 2. play the workflow skillet
 3. check the boxes for required workflow stages and Submit
 
+<br/>
+
 Workflow options
 ================
 
+- [deploy or destroy the topology in Azure](#deploy-or-destroy-the-topology-in-azure)
+- [Baseline the NGFW](baseline-the-ngfw)
 
-deploy or destroy the topology in Azure
----------------------------------------
+The solution workflow is organized by stack layers and allows a user to select one or more options. 
+Additional non-stack helper utilities are also provided and detailed below.
+
+<br/>
+
+### deploy or destroy the topology in Azure
+
 
 This workflow stage will authenticate the user to their Azure account, allow them to
 select a subscription, and then deploy the topology.
@@ -82,21 +110,15 @@ The following inputs are required to deploy the topology:
 > recommendation to use the user's last name or unique identifier as a 
 > prefix for the resource group name
 
-> the public IP addresses assigned by Azure to access the topology devices 
-> along with the input admin username and password 
-> are captured in this stage of the workflow and used to (1) update the 
-> target IP/user/password info in panhandler and (2) create updated input 
-> variables for device configuration
-
 
 ##### Terraform Deployment Stages
 
-> to deploy the topology, choose the 'Validate, Init, and Apply' dropdown option
-> after entering the user inputs
+To deploy the topology, choose the 'Validate, Init, and Apply' dropdown option
+after entering the user inputs
 
-> The user can also Destroy the topology by running the Deploy workflow 
-> option again and selecting 'Destroy'. Only the resource group name is required to destroy the 
-> topology although other web form fields are available
+The user can also Destroy the topology by running the Deploy workflow 
+option again and selecting 'Destroy'. Only the resource group name is required to destroy the 
+topology although other web form fields are available
 
 The user will click through a series of terraform stages:
 
@@ -109,19 +131,27 @@ The user will click through a series of terraform stages:
 > requiring the user to click to the next stage of the workflow. The Apply 
 > stage can take 10-15 minutes to reach completion.
 
+The public IP addresses assigned by Azure to access the topology devices 
+along with the input admin username and password 
+are captured at the end of this workflow stage and used to (1) update the 
+target IP/user/password info in panhandler and (2) create updated input 
+variables for device configuration. An output table with all topology IP addresses
+is shown on screen and can be saved or printed for future reference.
+
 > A certificate error may happen during the plan stage if the user is behind 
 > a firewall or other device that may decrypt or force the user of other 
 > endpoint certificates
 
-
+<br/>
 
 ### Baseline the NGFW
+
 
 This stage uses an Ansible playbook to license the firewall, apply 
 content/anti-virus updates, then upgrade the software to the latest version 
 if required.
 
-##### User Inputs
+#### User Inputs
 The following inputs are required to baseline the NGFW:
 
 * auth-code: activated VM-series auth-code used for licensing
@@ -134,7 +164,10 @@ The following inputs are required to baseline the NGFW:
 > Applying the auth-code will soft reboot the NGFW. The playbook will 
 > continue to reconnect during this time
 
-### Configure the NGFW
+<br/>
+
+Configure the NGFW
+------------------
 
 This stage will use a configuration skillet playlist to reference existing 
 snippets based on recommended practices and reference topologies.
