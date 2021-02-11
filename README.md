@@ -60,39 +60,21 @@ Usage
 2. play the workflow skillet
 3. check the boxes for required workflow stages and Submit
 
-#### Azure Deploy with Terraform
+Workflow options
+================
 
-This workflow stage will authenticate the user to their Azure account and 
-select the subscription to be used for the toplogy deployment.
 
-##### Terraform Deployment Stages
-Once authenticated, a terraform template is used to implement the topology 
-in Azure. 
-The user will click through a series of terraform stages:
+deploy or destroy the topology in Azure
+---------------------------------------
 
-    1. Init: initialize a working directory for the configuration files
-    2. Validate: validate the configuration files in the working directory
-    3. Plan: create the execution to deploy the topology
-    4. Apply: apply the changes to reach the desired state based on the plan
+This workflow stage will authenticate the user to their Azure account, allow them to
+select a subscription, and then deploy the topology.
 
-> The first three stages (Init, Validate, Plan) take only a few moments 
-> requiring the user to click to the next stage of the workflow. The Apply 
-> stage can take 10-15 minutes to reach completion.
-
-> The user can also Destroy the topology by running the Deploy workflow 
-> option again. Only the resource group name is required to destroy the 
-> topology although other web form fields are available
-
-> A certificate error may happen during the plan stage if the user is behind 
-> a firewall or other device that may decrypt or force the user of other 
-> endpoint certificates
-
-##### User Inputs
+#### User Inputs
 The following inputs are required to deploy the topology:
 
 * resource group name: unique name within the subscription that contains all of 
   the topology elements
-  
 * region: select a region for the deployment location
 * admin username and password: authentications for the NGFW and hosts
 * PAN-OS NGFW version: software version used for the deployed image
@@ -105,6 +87,33 @@ The following inputs are required to deploy the topology:
 > are captured in this stage of the workflow and used to (1) update the 
 > target IP/user/password info in panhandler and (2) create updated input 
 > variables for device configuration
+
+
+##### Terraform Deployment Stages
+
+> to deploy the topology, choose the 'Validate, Init, and Apply' dropdown option
+> after entering the user inputs
+
+> The user can also Destroy the topology by running the Deploy workflow 
+> option again and selecting 'Destroy'. Only the resource group name is required to destroy the 
+> topology although other web form fields are available
+
+The user will click through a series of terraform stages:
+
+    1. Init: initialize a working directory for the configuration files
+    2. Validate: validate the configuration files in the working directory
+    3. Plan: create the execution to deploy the topology
+    4. Apply: apply the changes to reach the desired state based on the plan
+
+> The first three stages (Init, Validate, Plan) take only a few moments 
+> requiring the user to click to the next stage of the workflow. The Apply 
+> stage can take 10-15 minutes to reach completion.
+
+> A certificate error may happen during the plan stage if the user is behind 
+> a firewall or other device that may decrypt or force the user of other 
+> endpoint certificates
+
+
 
 ### Baseline the NGFW
 
