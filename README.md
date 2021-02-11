@@ -9,6 +9,7 @@ Table of contents:
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Workflow options](#workflow-options)
+- [Solution Submodules](#solution-submodules)
 - [Support Policy](#support-policy)
 
 
@@ -85,7 +86,8 @@ Workflow options
 ================
 
 - [deploy or destroy the topology in Azure](#deploy-or-destroy-the-topology-in-azure)
-- [Baseline the NGFW](baseline-the-ngfw)
+- [Baseline the NGFW](#baseline-the-ngfw)
+- [Assess the NGFW](#assess-the-ngfw)
 
 The solution workflow is organized by stack layers and allows a user to select one or more options. 
 Additional non-stack helper utilities are also provided and detailed below.
@@ -166,8 +168,8 @@ The following inputs are required to baseline the NGFW:
 
 <br/>
 
-Configure the NGFW
-------------------
+### Configure the NGFW
+
 
 This stage will use a configuration skillet playlist to reference existing 
 snippets based on recommended practices and reference topologies.
@@ -185,6 +187,8 @@ snippets based on recommended practices and reference topologies.
 > Terraform templates are captured and parsed to pre-populate the IP address 
 > information for the NGFW configuration.
 
+<br/>
+
 ### Assess the NGFW
 
 This option allows the user to demonstrate validation skillets using a 
@@ -192,6 +196,8 @@ playlist model.
 
 Running the assessment will output a report showing a variety of validation 
 results based on product security services.
+
+<br/>
 
 ## Solution Submodules
 
@@ -215,6 +221,8 @@ submodules to:
 1. simplify solution development by referencing items from the tech library
 2. use automations that may be outside a user's core competence
 3. easily get source content updates without having to copy-paste content
+
+<br/><br/>
 
 ## Support Policy
 The code and templates in the repo are released under an as-is, best effort,
