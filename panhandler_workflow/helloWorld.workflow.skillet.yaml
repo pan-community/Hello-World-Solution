@@ -18,7 +18,7 @@ variables:
 
   - name: helloWorld_options_deploy
     description: Deploy
-    default: []
+    default: ['deploy_in_azure', 'deploy_baseline']
     type_hint: checkbox
     cbx_list:
       - key: deploy or destroy the topology in Azure
@@ -29,13 +29,11 @@ variables:
 
   - name: helloWorld_options_configure
     description: Configure
-    default: []
+    default: ['configure_NGFW']
     type_hint: checkbox
     cbx_list:
       - key: configure the NGFW
         value: configure_NGFW
-      - key: load empty baseline configuration (for testing or to load a different configuration)
-        value: load_baseline_config
     help_text: configure the NGFW with 3 zones and interfaces based on the deployed topology
 
   - name: helloWorld_options_assess
@@ -45,10 +43,17 @@ variables:
     cbx_list:
       - key: run assessment report
         value: run_assessment
-      - key: quick view of Azure IP info in panhandler context
-        value: quick_view_azure_ip_info
     help_text: validation and compliance reports using device configuration and state information
 
+  - name: helloWorld_options_helper
+    description: Helper Utilities
+    default: []
+    type_hint: checkbox
+    cbx_list:
+      - key: quick view of Azure IP info in panhandler context
+        value: quick_view_azure_ip_info
+      - key: load empty NGFW baseline configuration (for testing or to load a different configuration)
+        value: load_baseline_config
 
 snippets:
 # workflow stages for the Hello World Solution
@@ -78,16 +83,6 @@ snippets:
       - name: username
         source: admin_username
       - name: password
-        source: admin_password
-
-  - name: import_empty_config_ab8f807b-6c2d-4e0a-b302-88d225072b58
-    when: "'load_baseline_config' in helloWorld_options_configure"
-    transform:
-      - name: TARGET_IP
-        source: ngfw_ip_address
-      - name: TARGET_USERNAME
-        source: admin_username
-      - name: TARGET_PASSWORD
         source: admin_password
 
 # configure the NGFW
@@ -121,7 +116,17 @@ snippets:
       - name: TARGET_PASSWORD
         source: admin_password
 
-# run NGFW assessment
+# view Azure IP address info in the panhandler context
   - name: show_azure_topology_ip_addresses
-    when: "'quick_view_azure_ip_info' in helloWorld_options_assess"
+    when: "'quick_view_azure_ip_info' in helloWorld_options_helper"
 
+# import and load an empty configuration to the NGFW
+  - name: import_empty_config_ab8f807b-6c2d-4e0a-b302-88d225072b58
+    when: "'load_baseline_config' in helloWorld_options_helper"
+    transform:
+      - name: TARGET_IP
+        source: ngfw_ip_address
+      - name: TARGET_USERNAME
+        source: admin_username
+      - name: TARGET_PASSWORD
+        source: admin_password
