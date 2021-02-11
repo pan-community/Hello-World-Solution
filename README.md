@@ -35,6 +35,9 @@ The following are required to implement the hello world solution:
 * VM-100 authcode activated in the [Palo Alto Networks Customer Support Portal](https://support.paloaltonetworks.com) (VM-50 is NOT supported in Azure)
 * [panhandler installed](https://live.paloaltonetworks.com/t5/skillet-tools/install-and-get-started-with-panhandler/ta-p/307916) to run the solution workflow
 
+> The VM-100 authcode will be entered during the [Baseline the NGFW](#baseline-the-ngfw) stage of the workflow. This will automatically license the NGFW
+> without requiring manual support portal licensing using the CPU/UUID values.
+
 <br/>
 
 Usage
