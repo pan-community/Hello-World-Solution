@@ -3,7 +3,7 @@
 This solution contains a suite of pre-built automations to implement an Azure sandbox topology with a VM-series
 NGFW and two Ubuntu hosts.
 
-<img width="800" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-topology.png" xmlns="http://www.w3.org/1999/html">
+<img width="600" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-topology.png" xmlns="http://www.w3.org/1999/html">
 
 <br/><br/>
 
@@ -15,7 +15,7 @@ take advantage of the same baseline and configuration elements.
 
 <br/>
 
-<img width="800" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-stack.png" xmlns="http://www.w3.org/1999/html">
+<img width="600" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-stack.png" xmlns="http://www.w3.org/1999/html">
 
 <br/><br/>
 
