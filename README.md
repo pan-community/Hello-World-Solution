@@ -1,9 +1,9 @@
 # Common Design Principles: Hello World Solution
 
-Suite of pre-built automations to implement an Azure sandbox topology with a 
+This solution contains a suite of pre-built automations to implement an Azure sandbox topology with a 
 NGFW and two Ubuntu hosts.
 
-<img width="600" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-topology.png" xmlns="http://www.w3.org/1999/html">
+<img width="800" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/raw/images/solution-topology.png" xmlns="http://www.w3.org/1999/html">
 
 
 
