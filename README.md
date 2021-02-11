@@ -3,8 +3,9 @@
 Suite of pre-built automations to implement an Azure sandbox topology with a 
 NGFW and two Ubuntu hosts.
 
-![topology](https://gitlab.com/panw-gse/as/hello-world-solution/-/blob/images
-/solution-topology.png)
+<img width="600" align="center" alt="hello world topology" src="https://gitlab.com/panw-gse/as/hello-world-solution/-/blob/images
+/solution-topology.png" xmlns="http://www.w3.org/1999/html">
+
 
 Common Design Principles is based on a stack model to create an extensible 
 framework to mix-and-match solution elements 
