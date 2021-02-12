@@ -44,8 +44,9 @@ Usage
 =====
 
 1. import the Hello World solution repository into panhandler
-2. play the workflow skillet
+2. play the 'CDP Hello World Solution' workflow skillet
 3. check the boxes for required workflow stages and Submit
+4. continue through the work items, inputting information as needed
 
 > The [pahandler install and user guide](https://live.paloaltonetworks.com/t5/skillet-district/ct-p/Skillets) provides instructions
 > for installation, importing and updating repositories, and running skillets.
