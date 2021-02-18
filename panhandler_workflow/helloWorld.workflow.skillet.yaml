@@ -21,7 +21,7 @@ variables:
     default: ['deploy_in_azure', 'deploy_baseline']
     type_hint: checkbox
     cbx_list:
-      - key: deploy or destroy the topology in Azure
+      - key: deploy the topology in Azure
         value: deploy_in_azure
       - key: baseline the NGFW
         value: deploy_baseline
@@ -50,8 +50,12 @@ variables:
     default: []
     type_hint: checkbox
     cbx_list:
+      - key: refresh the topology outputs and load into the panhandler context
+        value: refresh_outputs
       - key: quick view of Azure IP info in panhandler context
         value: quick_view_azure_ip_info
+      - key: destroy the topology
+        value: destroy_topology
       - key: load empty NGFW baseline configuration (for testing or to load a different configuration)
         value: load_baseline_config
 
@@ -116,9 +120,17 @@ snippets:
       - name: TARGET_PASSWORD
         source: admin_password
 
+# refresh outputs from terraform state file and add to panhandler context
+  - name: terraform_output
+    when: "'refresh_outputs' in helloWorld_options_helper"
+
 # view Azure IP address info in the panhandler context
   - name: show_azure_topology_ip_addresses
     when: "'quick_view_azure_ip_info' in helloWorld_options_helper"
+
+# destroy the current topology loaded in the terraform state file
+  - name: terraform_destroy
+    when: "'destroy_topology' in helloWorld_options_helper"
 
 # import and load an empty configuration to the NGFW
   - name: import_empty_config_ab8f807b-6c2d-4e0a-b302-88d225072b58
