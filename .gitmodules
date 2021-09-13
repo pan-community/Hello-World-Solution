@@ -1,18 +1,18 @@
-[submodule "panos-config-elements"]
-	path = submodules/panos-config-elements
-	url = git@gitlab.com:panw-gse/tech-library/configure/panos-config-elements.git
-[submodule "ironskillet-components"]
-	path = submodules/ironskillet-components
-	url = git@gitlab.com:panw-gse/tech-library/configure/ironskillet-components.git
-[submodule "submodules/panos-ansible-upgrade-downgrade"]
-	path = submodules/panos-ansible-upgrade-downgrade
-	url = https://gitlab.com/panw-gse/tech-library/deploy/panos-ansible-upgrade-downgrade.git
-[submodule "submodules/panos-validation-snippets"]
-	path = submodules/panos-validation-snippets
-	url = https://gitlab.com/panw-gse/as/panos-validation-snippets.git
-[submodule "submodules/deployment-tools"]
-	path = submodules/deployment-tools
-	url = https://gitlab.com/panw-gse/tech-library/deploy/deployment-tools.git
 [submodule "submodules/topology-1-ngfw-2-hosts"]
 	path = submodules/topology-1-ngfw-2-hosts
 	url = git@github.com:pan-community/topology-1-ngfw-2-hosts.git
+[submodule "submodules/panos-config-elements"]
+	path = submodules/panos-config-elements
+	url = git@github.com:pan-community/panos-config-elements.git
+[submodule "submodules/ironskillet-components"]
+	path = submodules/ironskillet-components
+	url = git@github.com:PaloAltoNetworks/ironskillet-components.git
+[submodule "submodules/panos-validation-snippets"]
+	path = submodules/panos-validation-snippets
+	url = git@github.com:pan-community/panos-validation-snippets.git
+[submodule "submodules/panos-ansible-upgrade-downgrade"]
+	path = submodules/panos-ansible-upgrade-downgrade
+	url = git@github.com:PaloAltoNetworks/panos-ansible-upgrade-downgrade.git
+[submodule "submodules/deployment-tools"]
+	path = submodules/deployment-tools
+	url = git@github.com:pan-community/deployment-tools.git
